@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "single-opportunity": "/pages/opportunity/single-opportunity"
+  },
+  "disableScroll":true
+}

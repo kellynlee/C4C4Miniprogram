@@ -1,0 +1,22 @@
+<view class="container">
+  <view class = "head-bar" animation = "{{headerAnimation}}" style='mini-height: {{barHeight}}rpx;{{background}}' >
+    <text class='title' style='margin-bottom:30rpx;' animation = "{{textFade}}">{{today}}</text>
+    <text class = "title header-txt" animation = "{{textFade}}">My Opportunity</text>
+    <text class = "title total-num" animation = "{{textFade}}">{{totalNum}}</text> 
+    <view class='addBtn' bindtap='addNew'>
+    <view class='icon-font icon-zengjia' animation = "{{addBtnAnimation}}"></view>
+    </view>
+    <view class = 'hiddenText' animation = "{{textShow}}">
+      <text style = 'font-size: 36rpx'>My Opportunity</text>
+      <text style = 'font-size: 20rpx'>({{totalNum}})</text>
+    </view>
+  </view>
+  <scroll-view  style='height:{{scrollHeight}}%;'scroll-y='true' animation = "{{listAnimation}}" bindscrolltoupper = "toTop"> 
+   <view wx:for="{{opportunityList}}" bind:touchmove = "moveContent" bind:touchstart = "startPosition" wx:key='*this.index'>
+   <single-opportunity opportunity-obj="{{item}}" ></single-opportunity>
+   </view>  
+  </scroll-view>
+  <!-- <view>
+    <button bindtap='test'>test</button>
+  </view>  -->
+</view>

@@ -1,0 +1,42 @@
+<!--pages/appointments/single-appointment.wxml-->
+<view class='flex-wrp single-style'>
+  <view class='flex-img'>
+    <span class='appointment-icon icon-yuandianxiao {{isRead == false?"is-read":"has-read"}}' ></span>
+  </view>
+  <view class= 'flex-img'>
+    <image src="../../icons/AppointmentGrey.png" style='height: 55rpx; width: 55rpx'></image>
+  </view>
+  <view class='flex-item grid' bindtap='showDetail'>
+    <view class='subject'>
+      <text>{{appointmentObj.Subject}}</text>
+    </view>
+    <view class='owner'>
+      <text>{{appointmentObj.Owner.content}}</text>
+    </view>  
+    <view class = 'time'>
+      <text>{{appointmentObj.StartDateTime.content + '-'+ appointmentObj.EndDateTime.content}}</text>
+    </view>
+  </view>
+  <view class='flex-item' style='padding-right:40rpx' bindtap='dragDown'>
+  <view class= 'icon-font icon-xiala' animation= '{{rotateArrow}}' ></view>
+  </view>
+</view>
+
+<view class= 'drag-list flex-wrp'  hidden='{{!isClick}}' style='flex-direction: column;padding:{{padding}}' animation= '{{slidAnimation}}'>
+<!-- <view class='flex-item grid'>
+  <span class= 'appointment-icon icon-riqiqujian detail'></span>
+  <text class='detail'>{{appointmentObj.StartDateTime.content + '-'+ appointmentObj.EndDateTime.content}}</text>  
+</view> -->
+<view class='flex-item grid'>
+  <span class= 'appointment-icon icon-weizhi detail'></span>
+  <text class='detail'>{{appointmentObj.LocationName}}</text>
+</view>
+<view class='flex-item grid'>
+  <span class= 'appointment-icon icon-xinxitishicopy detail'></span>
+  <text class='detail'>{{appointmentObj.StatusCodeText}}</text>
+</view>
+<view class='flex-item grid'>
+  <span class= 'appointment-icon icon-fuhao-dianhua detail'></span>
+  <text class='detail'>{{appointmentObj.Phone}}</text>
+</view>
+</view>

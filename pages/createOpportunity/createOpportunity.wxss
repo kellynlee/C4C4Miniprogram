@@ -1,0 +1,37 @@
+/* pages/createOpportunity.wxss */
+@import"../../weui.wxss"; 
+page {
+  height: 100%;
+  background-color: #f8f8f8;
+}
+view {
+  font-family: '72'
+  
+}
+
+.title {
+  font-size: 40rpx;
+  padding: 20rpx 0 0 20rpx;
+  background-color: #509AFF;
+  margin-bottom: 20rpx;
+  color: #fff;
+}
+view .text {
+  font-size: 24rpx;
+  font-family: '72'
+  
+}
+/* .row {
+  height: 120rpx; 
+  margin-bottom: 20rpx;
+  position: relative;
+}
+
+input {
+  width: 600rpx;
+  
+}
+
+.isClicked {
+  border-bottom: 1px solid #666666;
+} */

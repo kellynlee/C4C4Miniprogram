@@ -1,0 +1,46 @@
+/* pages/userLogin/userLogin.wxss */
+form  {
+  margin-top: 100rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.imgBox {
+  display: flex;  
+  justify-content: center; 
+}
+
+.inputBox {
+  display: flex;
+  justify-content: center;
+  margin-top: 40rpx;
+  width: 500rpx;
+  border-bottom: 1px #509AFF solid;
+}
+
+input {
+  width: 450rpx;
+  margin-bottom: 6rpx;
+}
+
+.innerStyle {
+  font-family: '72';
+  color: #BDBDBD;
+}
+
+.delete {
+  height: 40rpx;
+  width: 40rpx;
+  position: relative;
+  right: 0
+}
+
+button {
+  border-radius: 25px;
+  width: 300rpx;
+  margin-top: 50rpx;
+  background-color: #509AFF;
+  color: #fff;
+  font-family: '72';
+
+}

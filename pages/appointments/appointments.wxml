@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="container">
+  <view class = "head-bar" animation = "{{headerAnimation}}" style='mini-height: {{barHeight}}rpx;{{background}}' >
+    <text class='title' style='margin-bottom:30rpx;' animation = "{{textFade}}">{{today}}</text>
+    <text class = "title header-txt" animation = "{{textFade}}">My Appointments</text>
+    <text class = "title total-num" animation = "{{textFade}}">{{totalNum}}</text> 
+    <view class = 'hiddenText' animation = "{{textShow}}">
+      <text style = 'font-size: 36rpx'>My Appointment</text>
+      <text style = 'font-size: 20rpx'>({{totalNum}})</text>
+    </view>
+  </view>
+  <scroll-view  style='height:{{scrollHeight}}%;'scroll-y='true' animation = "{{listAnimation}}" bindscrolltoupper = "toTop"> 
+   <view wx:for="{{appointmentList}}" bind:touchmove = "moveContent" bind:touchstart = "startPosition" wx:key='*this.index'>
+   <single-appointment appointment-obj="{{item}}" index = "{{index}}"></single-appointment>
+   </view>  
+  </scroll-view>
+  <!-- <view>
+    <button bindtap='test'>test</button>
+  </view>  -->
+</view>

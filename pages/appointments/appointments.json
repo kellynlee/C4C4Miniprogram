@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "single-appointment": "/pages/appointments/single-appointment"
+    },
+    "disableScroll": true
+}

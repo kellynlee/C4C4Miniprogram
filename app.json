@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/userLogin/userLogin",
+    "pages/appointments/appointments",   
+    "pages/opportunity/opportunity",
+    "pages/appointments/show-detail",
+    "pages/createOpportunity/createOpportunity"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#509AFF",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false,
+    "backgroundColorBottom": " #f8f8f8"
+  },
+  "tabBar": {
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "pagePath": "pages/appointments/appointments",
+        "text": "Appointments",
+        "iconPath": "icons/AppointmentGrey.png",
+        "selectedIconPath": "icons/AppointmentBlue.png"
+      },
+      {
+        "pagePath": "pages/opportunity/opportunity",
+        "text": "Opportunity",
+        "iconPath": "icons/OpportunityGrey.png",
+        "selectedIconPath": "icons/OpportunityBlue.png"
+      }
+    ],
+    "borderStyle": "black"
+  }
+}

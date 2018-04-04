@@ -1,0 +1,66 @@
+/* pages/appointments/show-detail.wxss */
+page{
+  height: 100%;
+  background-color: #f8f8f8
+}
+
+text {
+  font-family: '72'
+}
+
+.header {
+  background-color:#509AFF;
+  height: 80rpx;
+  margin-bottom: 40rpx;
+  padding: 20rpx 0 0 20rpx;
+  box-shadow: 0px 4px 5px #BDBDBD;
+}
+
+.editBtn {
+  height: 80rpx;
+  width: 80rpx;
+  background-color: #5C6BC0;
+  margin-top: -10rpx;
+  position: absolute ;
+  right: 5%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 10px #BDBDBD;  
+}
+
+.edit-icon {
+  height: 40rpx; 
+  width: 40rpx; 
+  
+}
+
+.header-text {
+  color: #fff;
+  font-size: 36rpx;
+  /* margin:20rpx 0 0 20rpx; */
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  height: 100rpx;
+}
+
+.cell {
+  flex: 1;
+  margin-left: 40rpx;
+}
+
+.title {
+  font-size: 30rpx;
+  color: #1296db;
+  display: block
+}
+
+.content {
+  font-size: 28rpx;
+  color: #8a8a8a;
+  display: block 
+}
