@@ -19,7 +19,7 @@ form  {
 }
 
 input {
-  width: 450rpx;
+  width: 500rpx;
   margin-bottom: 6rpx;
 }
 

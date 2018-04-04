@@ -8,12 +8,13 @@ Page({
   data: {
     openID: null,
     employeeID: null,
-    employeeName:null
+    employeeName:null,
+    isInput:0,
   },
 
-  infoInput: function (e) {
+  startInput: function (e) {
     this.setData({
-      employeeID: e.detail.value
+      isInput:1
     })
   },
 

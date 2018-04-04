@@ -7,11 +7,11 @@
     </view>
     <view class='inputBox'>
       <input name = 'employeeId' placeholder='EmployeeID' placeholder-class='innerStyle' bindinput='startInput' value='{{employeeName}}'></input>
-      <image src='../../icons/delete.png' class='delete'></image>
+      <!-- <image src='../../icons/delete.png' class='delete' style='opacity: {{isInput}}'></image> -->
     </view>
     <view class='inputBox'>
       <input name = 'employeeName' placeholder='EmplyeeName' placeholder-class='innerStyle' bindinput='startinput'></input>  
-      <image src='../../icons/delete.png' class='delete' ></image>  
+      <!-- <image src='../../icons/delete.png' class='delete' style='opacity: {{isInput}}'></image>   -->
     </view>
     <button formType='submit'>Assign</button>
   </form>

@@ -351,6 +351,9 @@ Page({
           var res = res.data.appointments,
             length = res.length;
           for (let i = 0; i < length; i++) {
+            if (res[i].LocationName.length > 36) {
+              res[i].LocationName = res[i].LocationName.slice(0,36) + "..."
+            }
             if (res[i].EndDateTime.content != null) {
               let date = new Date(parseInt(res[i].EndDateTime.content.match(/[\d]/g).join('')));
               res[i].EndDateTime.content = date.dateSplice(date);
