@@ -5,14 +5,20 @@
     <view class='imgBox'>
       <image src='../../icons/user.png' style='height: 200rpx; width: 200rpx'></image>
     </view>
-    <view class='inputBox'>
-      <input name = 'employeeId' placeholder='EmployeeID' placeholder-class='innerStyle' bindinput='startInput' value='{{employeeName}}'></input>
-      <!-- <image src='../../icons/delete.png' class='delete' style='opacity: {{isInput}}'></image> -->
+    <block wx:if='{{!isAssigned}}'>
+      <view class='inputBox' >
+       <input name = 'employeeName' placeholder='EmplyeeName' placeholder-class='innerStyle' value=''></input> 
     </view>
     <view class='inputBox'>
-      <input name = 'employeeName' placeholder='EmplyeeName' placeholder-class='innerStyle' bindinput='startinput'></input>  
-      <!-- <image src='../../icons/delete.png' class='delete' style='opacity: {{isInput}}'></image>   -->
+      <input name = 'employeeId' placeholder='EmployeeID' placeholder-class='innerStyle' value='' ></input>
     </view>
     <button formType='submit'>Assign</button>
+    </block>
+     <block wx:if='{{isAssigned}}'>
+      <view class='slogan'>
+        Welcome {{employeeName}} !
+      </view>
+      <button formType='submit'>Enter</button>
+    </block> 
   </form>
 </view>

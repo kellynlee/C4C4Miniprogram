@@ -1,12 +1,11 @@
 /* pages/createOpportunity.wxss */
-@import"../../weui.wxss"; 
+/* @import"../../weui.wxss";  */
 page {
   height: 100%;
   background-color: #f8f8f8;
 }
-view {
-  font-family: '72'
-  
+view,text,button{
+  font-family: '72';
 }
 
 .title {
@@ -15,11 +14,68 @@ view {
   background-color: #509AFF;
   margin-bottom: 20rpx;
   color: #fff;
+  height: 80rpx;
 }
-view .text {
-  font-size: 24rpx;
+
+.container {
+  margin: 40rpx 0 0 30rpx;
+}
+
+.row {
+  display: block;
+  width: 600rpx;
+  margin-bottom: 10rpx;
+}
+
+.subTitle {
+  display: block;
+  margin-top: -28rpx;
+  font-size: 28rpx;
+  color: #BDBDBD
+}
+
+.row:nth-child(3) .formBody {
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+}
+
+.row:nth-child(3) .formBody input {
+  width: 480rpx;
+  margin-left: 20rpx;
+}
+
+picker {
+  width: 100rpx;
+  display: block;
+  margin-top: 15rpx;
+}
+
+.picker {
+  font-family: '72';
+  color: #BDBDBD
+}
+
+input {
+  border-bottom: 1px solid #BDBDBD;  
+  height: 63rpx;
+}
+
+.formBody :focus {
+ border:1px solid #509AFF;
+ color: #509AFF;
+ /* height: 50rpx */
+}
+
+.innerStyle {
   font-family: '72'
-  
+}
+
+button {
+  width: 500rpx;
+  background-color: #509AFF;
+  color: #fff;
+  margin-top: 40rpx;
 }
 /* .row {
   height: 120rpx; 

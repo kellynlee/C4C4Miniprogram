@@ -25,8 +25,98 @@ Page({
       SalesOrganization:'',
       SalseUnit:'',
       CustomStatus:'',
-      SalesOrder:''
+      SalesOrder:'',
+    },
+    currencyList: ["RMB", "USD", "EUR", "GBP", "JPY"],
+    currencyIndex: 0,
+  },
+
+  bindPickerChange :function (e) {
+    console.log(e.detail)
+    this.setData({
+      currencyIndex: e.detail.value
+    })
+  },
+
+  submitOpportunity:function (e) {
+    // console.log(e.detail)
+    var postData = e.detail.value;
+    var index = this.data.currencyIndex;
+    postData.currencyCode = this.data.currencyList[index];
+
+    if (postData.name.length == 0) {
+      wx.showModal({
+        title: 'Warning',
+        content: 'Please Input Name!',
+        confirmText: 'Confirm',
+        showCancel: false
+      })
+      return false
     }
+
+    if (postData.account.length == 0) {
+      wx.showModal({
+        title: 'Warning',
+        content: 'Please Input Account!',
+        confirmText: 'Confirm',
+        showCancel: false
+      })
+      return false
+    }
+
+    if (postData.owner.length == 0) {
+      wx.showModal({
+        title: 'Warning',
+        content: 'Please Input Owner!',
+        confirmText: 'Confirm',
+        showCancel: false
+      })
+      return false
+    }
+
+    var reg = /^[0-9]*$/;
+
+    if(!reg.test(postData.amount)) {
+      wx.showModal({
+        title: 'Warning',
+        content: 'Expected Value Must be Number!',
+        confirmText: 'Confirm',
+        showCancel: false
+      })
+      return false
+    }
+
+    if (!reg.test(postData.probabilityPercentage)) {
+      wx.showModal({
+        title: 'Warning',
+        content: 'Probability Must be Number!',
+        confirmText: 'Confirm',
+        showCancel: false
+      })
+      return false
+    } else {
+      postData.probabilityPercentage = postData.probabilityPercentage + '.000000'
+    }
+    wx.showLoading({
+      title: 'Saving',
+    })
+    wx.request({
+      url: 'http://testc4cwc.duapp.com/mini/opportunity',
+      data: postData,
+      method: "POST",
+      success: (res) => {
+        wx.hideLoading()
+        wx.showToast({
+          title: 'Saved!',
+          duration:3000,
+          success: (res) => {
+            wx.switchTab({
+              url: '/pages/opportunity/opportunity',
+            })
+          }
+        })
+      }
+    })
   },
 
   clickInput: function (e) {

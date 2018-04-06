@@ -9,35 +9,40 @@ Page({
     openID: null,
     employeeID: null,
     employeeName:null,
-    isInput:0,
+    isAssigned:false,
   },
 
-  startInput: function (e) {
-    this.setData({
-      isInput:1
-    })
-  },
+  // startInput: function (e) {
+  //   this.setData({
+  //     isInput:1
+  //   })
+  // },
 
-  infoSubmit: function (e) {
-    var postData = e.detail.value;
-    app.globalData.employeeName =  e.detail.value.employeeName;//将employeeName注册为全局参数
-    postData.openId = this.data.openID;
-    wx.showLoading({
-      title: 'assigning',
-      mask:true
-    })
-    wx.request({
-      url: 'http://testc4cwc.duapp.com/mini/employee',
-      data: postData,
-      method: 'POST',
-      success: function (res) {
-        // console.log(res)
-        // if (res == 'success') {
-        wx.setStorageSync('employeeName', postData.employeeName)
+  infoSubmit: function (e) { 
+    if(this.data.isAssigned) {
+      wx.switchTab({
+        url: '/pages/appointments/appointments',
+      })
+    }else {
+      var postData = e.detail.value;
+      app.globalData.employeeName = e.detail.value.employeeName;//将employeeName注册为全局参数
+      postData.openId = this.data.openID;
+      wx.showLoading({
+        title: 'assigning',
+        mask: true
+      })
+      wx.request({
+        url: 'http://testc4cwc.duapp.com/mini/employee',
+        data: postData,
+        method: 'POST',
+        success: function (res) {
+          // console.log(res)
+          // if (res == 'success') {
+          wx.setStorageSync('employeeName', postData.employeeName)
           wx.hideLoading();
           wx.showToast({
             title: 'Success!',
-            icon:'success',
+            icon: 'success',
             mask: true,
             success: (res) => {
               wx.switchTab({
@@ -45,17 +50,59 @@ Page({
               })
             }
           })
-          
-        // }
-      }
-    })
+
+          // }
+        }
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+    var employeeName = wx.getStorageSync('employeeName');  
+    var openId = wx.getStorageSync('openId');
+    if (employeeName) {          
+      this.setData({
+        isAssigned: true,
+        employeeName: employeeName
+      })
+    }
+    if(openId) {
+      this.setData({
+        openID: openId
+      })
+      wx.hideLoading()
+    }else {
+      wx.showLoading({
+        title: 'Loading',
+        mask: true
+      });
+      app.getUserInfoCallback = res => {
+        this.setData ({
+          openID: res
+        });
+        wx.hideLoading();
+      }
+    }
+    // if (app.globalData.openID) {
+    //   this.setData({
+    //     openID: app.globalData.openID
+    //   })
+    //   wx.setStorage({
+    //     key: 'openId',
+    //     data: app.globalDa,
+    //   })
+    //   wx.hideLoading();
+    // } else {
+    //   app.getUserInfoCallback = res => {
+    //     this.setData({
+    //       openID: res
+    //     })
+    //     wx.hideLoading()
+    //   }
+    // }
   },
 
   /**
@@ -74,53 +121,7 @@ Page({
         console.log(res)
       }
     })
-    var app = getApp();
-    console.log(app.globalData);
-    if (app.globalData.openID) {
-      this.setData({
-        openID: app.globalData.openID
-      })
-    } else {
-      app.getUserInfoCallback = res => {
-        this.setData({
-          openID: res
-        })
-      }
-    }
+   
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+  
 })

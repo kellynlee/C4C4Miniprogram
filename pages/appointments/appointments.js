@@ -22,7 +22,7 @@ Page({
     hasUserInfo: false,
     today:'',
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    totalNum:12,
+    totalNum:0,
     accountName: 'Jason Born',
     barHeight:200,
     scrollHeight:82,
@@ -208,7 +208,7 @@ Page({
         listAnimation: listAnimation.export(),
         textShow: textShow.export(),
         textFade: textFade.export(),
-        scrollHeight: 92,
+        scrollHeight: 94,
         background: 'background-color:#509AFF;',
         isTranslated:true
       })
@@ -241,35 +241,7 @@ Page({
       }
     }
  },
-
-  upper:function (e) {
-    // console.log(this)
-    // console.log(e);
-    console.log(e)
-    
-    var prePos = this.data.prePos;
-    
-    if (e.detail.deltaY >0){
-      console.log('down')
-      headerAnimation.translateY(0).step();
-      listAnimation.translateY(0).step();
-    }else{
-      if(isToTop && isTransformed) {
-        console.log('ssss')
-      }
-    }
-    this.setData({
-      prePos: e.detail.scrollTop
-    })
-        // console.log()
-    if(e.detail.scrollTop < leftHeight){
-      barHeight = Math.floor((barHeight-1)/screenHeight)
-      this.setData({
-        barHeight:barHeight
-      })
-    }
-  },
-
+ 
   onReady: function () {
     var thiz = this;
     var systemInfo = wx.getSystemInfo({
@@ -314,65 +286,66 @@ Page({
   },
 
   onShow: function () {
+    var openId = wx.getStorageSync('openId')
     var thiz = this;
-    try {
-      var employeeName = wx.getStorageSync('employeeName');
-      if (employeeName) {
-        this.setData({
-          employeeName:employeeName
+    // try {
+    //   var employeeName = wx.getStorageSync('employeeName');
+    //   if (employeeName) {
+    //     this.setData({
+    //       employeeName:employeeName
+    //     })
+    //   }else {
+    //     wx.showModal({
+    //       title: 'Not Assign',
+    //       content: 'Your WechatId has not assigned to C4C',
+    //       success:(res) => {
+    //         wx.navigateTo({
+    //           url: '/pages/userLogin/userLogin',
+    //         })
+    //       }
+    //     })
+    //   }
+    // } catch(e) {
+    //   console.log(e)
+    // }
+    if(this.data.appointmentList.length == 0) {
+        wx.showLoading({
+          title: 'loading',
+          mask: true
         })
-      }else {
-        wx.showModal({
-          title: 'Not Assign',
-          content: 'Your WechatId has not assigned to C4C',
-          success:(res) => {
-            wx.navigateTo({
-              url: '/pages/userLogin/userLogin',
+        wx.request({
+          url: 'http://testc4cwc.duapp.com/mini/appointment',
+          data: {
+            'openId': openId
+          },
+          success: res => {
+            console.log(res)
+            wx.hideLoading();
+            var res = res.data.appointments,
+              length = res.length;
+            for (let i = 0; i < length; i++) {
+              if (res[i].LocationName.length > 36) {
+                res[i].LocationName = res[i].LocationName.slice(0, 36) + "..."
+              }
+              if (res[i].EndDateTime.content != null) {
+                let date = new Date(parseInt(res[i].EndDateTime.content.match(/[\d]/g).join('')));
+                res[i].EndDateTime.content = date.dateSplice(date);
+              } else {
+                res[i].EndDateTime.content = '';
+              }
+              if (res[i].StartDateTime.content != null) {
+                let date = new Date(parseInt(res[i].StartDateTime.content.match(/[\d]/g).join('')));
+                res[i].StartDateTime.content = date.dateSplice(date)
+              } else {
+                res[i].StartDateTime.content = '';
+              }
+            }
+            thiz.setData({
+              appointmentList: res,
+              totalNum: length
             })
           }
         })
-      }
-    } catch(e) {
-      console.log(e)
-    }
-    if(this.data.appointmentList.length == 0 && this.data.employeeName) {
-      wx.showLoading({
-        title: 'loading',
-        mask: true
-      })
-      wx.request({
-        url: 'http://testc4cwc.duapp.com/mini/appointment',
-        data: {
-          'employeeName': this.data.employeeName
-        },
-        success : res => {
-          console.log(res)
-          wx.hideLoading();
-          var res = res.data.appointments,
-            length = res.length;
-          for (let i = 0; i < length; i++) {
-            if (res[i].LocationName.length > 36) {
-              res[i].LocationName = res[i].LocationName.slice(0,36) + "..."
-            }
-            if (res[i].EndDateTime.content != null) {
-              let date = new Date(parseInt(res[i].EndDateTime.content.match(/[\d]/g).join('')));
-              res[i].EndDateTime.content = date.dateSplice(date);
-            } else {
-              res[i].EndDateTime.content = '';
-            }
-            if (res[i].StartDateTime.content != null) {
-              let date = new Date(parseInt(res[i].StartDateTime.content.match(/[\d]/g).join('')));
-              res[i].StartDateTime.content = date.dateSplice(date)
-            } else {
-              res[i].StartDateTime.content = '';
-            }
-          }
-          thiz.setData({
-            appointmentList: res,
-            totalNum: length
-          })
-        }
-      })
     }
     if (this.data.isTranslated) {
       var headerAnimation = wx.createAnimation({

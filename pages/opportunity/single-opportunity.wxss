@@ -51,8 +51,8 @@ text {
 
 .percentage {
   position:absolute;
-  right: 10%;
-  margin: 5rpx 0 0 0;
+  right: 5%;
+  margin: -3rpx 0 0 0;
 
 }
 
@@ -81,8 +81,9 @@ span.detail {
   margin-right: 20rpx; 
 }
 
-.is-read{
-  color: #62b900
+view.is-read{
+  color: #62b900;
+  font-size: 40rpx;
 }
 .has-read {
   color: #fff;

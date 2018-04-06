@@ -67,8 +67,9 @@ span.detail {
   margin-right: 20rpx; 
 }
 
-.is-read{
-  color: #62b900
+span.is-read{
+  color: #62b900;
+  font-size: 40rpx;
 }
 .has-read {
   color: #fff;

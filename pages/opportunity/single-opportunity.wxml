@@ -2,9 +2,9 @@
   <view class='flex-img'>
     <view class='appointment-icon icon-yuandianxiao {{isRead == false?"is-read":"has-read"}}'></view>
   </view>
-  <view class= 'flex-img'>
+  <!-- <view class= 'flex-img'>
     <image src="../../icons/OpportunityGrey.png" style='height: 60rpx; width: 60rpx; vertival-align:middle'></image>
-  </view>
+  </view> -->
   <view class='grid' bindtap='showDetail'>
     <view class='subject'>
        <text>{{opportunityObj.Name.content}}</text> 
@@ -19,16 +19,16 @@
   <!-- <canvas canvas-id='circleBg' class='circle flex-item'></canvas>
   <canvas canvas-id='percentage' class='circle flex-item'></canvas>   -->
   <view class='percentage'>
- <image src='{{percentageImage}}' style='height:80rpx; width:80rpx'></image> 
+ <image src='{{percentageImage}}' style='height:105rpx; width:105rpx'></image> 
   </view>
 </view>
 
-<view class= 'drag-list flex-wrp'  hidden='{{!isClick}}' style='flex-direction: column;padding:{{padding}}' animation= '{{slidAnimation}}'>
+<!-- <view class= 'drag-list flex-wrp'  hidden='{{!isClick}}' style='flex-direction: column;padding:{{padding}}' animation= '{{slidAnimation}}'> -->
 <!-- <view class='flex-item grid'>
   <span class= 'appointment-icon icon-riqiqujian detail'></span>
   <text class='detail'>{{appointmentObj.StartDateTime.content + '-'+ appointmentObj.EndDateTime.content}}</text>  
 </view> -->
-<view class='flex-item grid'>
+<!-- <view class='flex-item grid'>
   <span class= 'appointment-icon icon-weizhi detail'></span>
    <text class='detail'>{{opportunityObj.LocationName}}</text> 
 </view>
@@ -40,4 +40,4 @@
   <span class= 'appointment-icon icon-fuhao-dianhua detail'></span>
    <text class='detail'>{{opportunityObj.Phone}}</text> 
 </view>
-</view>
+</view> -->

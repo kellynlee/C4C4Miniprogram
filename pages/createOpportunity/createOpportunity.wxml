@@ -1,225 +1,58 @@
-<view class="page">
-  <view class="title">Create Opportunity</view>
-  <form bindsubmit='submitOpportunity'>
-    <view class='weui-cells weui-cells_after-title'>
-      <!-- <view class="weui-cell weui-cell_select">
-      <view class="weui-cell__hd weui-cell__hd_in-select-after">
-        <view class="weui-label text">Document Type</view>
+<view class='page'>
+  <view class='title'>
+    Creat Opportunity
+  </view>
+  <form class='container' bindsubmit='submitOpportunity'>
+    <view class='row'>
+      <view class='formTitle'>
+        <text style='color: #F44336;'>*</text>
+        <text class='subTitle' style='padding-left:4rpx'>Name</text>
       </view>
-      <view class="weui-cell__bd">
-        <picker bindchange="bindCountryChange" value="{{documentTypeIndex}}" range="{{documentTypeList}}">
-          <view class="weui-select weui-select_in-select-after">{{documentTypeList[documentTypeindex]}}</view>
+      <view class='formBody'>
+        <input placeholder='Input Name' name='name' placeholder-class='innerStyle' :focus></input>
+      </view>
+    </view>
+    <view class='row'>
+      <view class='formTitle'>
+        <text style='color: #F44336;'>*</text>
+        <text class='subTitle' style='padding-left:4rpx'>Account</text>
+      </view>
+      <view class='formBody'>
+        <input placeholder='Input Account' name='account' placeholder-class='innerStyle'></input>
+      </view>
+    </view>
+    <view class='row'>
+      <view class='formTitle'>
+        <text style='opacity:0'>*</text>
+        <text class='subTitle'>Expected Value</text>
+      </view>
+      <view class='formBody'>
+        <picker value='{{currencyIndex}}' range='{{currencyList}}' bindchange='bindPickerChange'>
+          <view class='picker'>
+            {{currencyList[currencyIndex]}}
+          </view>
         </picker>
+        <input placeholder='Input Expected Value' name='amount' placeholder-class='innerStyle'></input>
       </view>
     </view>
-    <view class="weui-cell weui-cell_select">
-      <view class="weui-cell__hd weui-cell__hd_in-select-after">
-        <view class="weui-label text">Type</view>
+     <view class=' row '>
+      <view class='formTitle '>
+      <text style='opacity:0'>*</text><text class='subTitle'>Probability</text>
       </view>
-      <view class="weui-cell__bd">
-        <picker bindchange="bindCountryChange" value="{{typeIndex}}" range="{{typeLise}}">
-          <view class="weui-select weui-select_in-select-after">{{typeList[typeIndex]}}</view>
-        </picker>
-      </view>
-    </view> -->
-      <!-- <view class='weui-cell weui-cell_input'>
-      <view class='weui-cell__hd' bindtap='clickInput'>
-        <view class='weui-label'>DocumentType</view>
-      </view>
-      <view class='weui-cell__bd'>
-        <input class='weui-input' placeholder='DocumentType' focus='{{isFocused}}'></input>
-      </view>
-    </view> -->
-      <!-- <view class='weui-cell'>
-      <view class='weui-cell__hd'>
-        <view class='weui-label'>Type</view>
-      </view>
-      <view class='weui-cell__bd'>
-        <input class='weui-input' placeholder='Type'></input>
-      </view>
-    </view> -->
-      <view class='weui-cell weui-cell_input'>
-        <view class='weui-cell__hd'>
-          <view class='weui-label text'>*Name</view>
-        </view>
-        <view class='weui-cell__bd'>
-          <input class='weui-input' placeholder='Name' placeholder-class="text"></input>
-        </view>
-      </view>
-      <view class='weui-cell weui-cell_input'>
-        <view class='weui-cell__hd'>
-          <view class='weui-label text'>*Account</view>
-        </view>
-        <view class='weui-cell__bd'>
-          <input class='weui-input' placeholder='Account' placeholder-class="text"></input>
-        </view>
-      </view>
-      <!-- <view class='weui-cell weui-cell_input'>
-      <view class='weui-cell__hd'>
-        <view class='weui-label text'>Primary Contact</view>
-      </view>
-      <view class='weui-cell__bd'>
-        <input class='weui-input' placeholder='Primary Contact' placeholder-class="text"></input>
+      <view class='formBody '>
+      <input placeholder='Input Probability ' name='probabilityPercentage' placeholder-class='innerStyle'></input>
       </view>
     </view>
-    <view class='weui-cell weui-cell_input'>
-      <view class='weui-cell__hd'>
-        <view class='weui-label text'>Normal</view>
+    <view class='row '>
+      <view class='formTitle '>
+      <text style='color: #F44336; '>*</text><text class='subTitle ' style='padding-left:4rpx'>Owner</text>
       </view>
-      <view class='weui-cell__bd'>
-        <input class='weui-input' placeholder='Normal' placeholder-class="text"></input>
+      <view class='formBody '>
+        <input placeholder='Input Owner ' name='owner' placeholder-class='innerStyle'></input>
       </view>
-    </view> -->
-      <view class="weui-cell weui-cell_select">
-        <view class="weui-cell__hd weui-cell__bd_in-select-before">
-          <view class='weui-label text'>ExpextedValue</view>
-        </view>
-        <view class="weui-cell__bd " style='width:30px;'>
-          <picker bindchange="bindCountryCodeChange" value="{{valueCurrencyIndex}}" range="{{valueCurrency}}">
-            <view class="weui-select">{{valueCurrency[valueCurrencyIndex]}}</view>
-          </picker>
-        </view>
-        <view>
-          <input class="weui-input" placeholder="Input Expected Value" placeholder-class='text' />
-        </view>
-      </view>
-
-      <!-- <view class='weui-cell'>
-      <view class='weui-cell__hd'>
-        <view class='weui-label'>Expected Value</view>
-      </view>
-      <view class='weui-cell__bd'>
-        <input class='weui-input' placeholder='*Expected Value'></input>
-      </view>
-    </view> -->
-      <!-- <view class="weui-cell weui-cell_input">
-                <view class="weui-cell__hd">
-                    <view class="weui-label text">StartDate</view>
-                </view>
-                <view class="weui-cell__bd">
-                    <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-                        <view class="weui-input">{{date}}</view>
-                    </picker>
-                </view>
-            </view>
-    <view class="weui-cell weui-cell_input">
-                <view class="weui-cell__hd">
-                    <view class="weui-label text">EndDate</view>
-                </view>
-                <view class="weui-cell__bd">
-                    <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-                        <view class="weui-input">{{date}}</view>
-                    </picker>
-                </view>
-            </view> -->
-      <!-- <view class="weui-cell weui-cell_select">
-      <view class="weui-cell__hd weui-cell__hd_in-select-after">
-        <view class="weui-label text">Sales Circle</view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker bindchange="bindCountryChange" value="{{salesCircleIndex}}" range="{{salesCircleList}}">
-          <view class="weui-select weui-select_in-select-after">{{salesCircleList[salesCircleIndex]}}</view>
-        </picker>
-      </view>
-    </view>
-    <view class="weui-cell weui-cell_select">
-      <view class="weui-cell__hd weui-cell__hd_in-select-after">
-        <view class="weui-label text">Sales Phase</view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker bindchange="bindCountryChange" value="{{salesPhaseIndex}}" range="{{salesPhaesList}}">
-          <view class="weui-select weui-select_in-select-after">{{salesPhaseList[salesPhaseIndex]}}</view>
-        </picker>
-      </view>
-    </view> -->
-      <view class='weui-cell weui-cell_input'>
-        <view class='weui-cell__hd'>
-          <view class='weui-label text'>Probability</view>
-        </view>
-        <view class='weui-cell__bd'>
-          <input class='weui-input' placeholder='Probability' placeholder-class="text"></input>
-        </view>
-      </view>
-      <!-- <view class="weui-cell weui-cell_select">
-      <view class="weui-cell__hd weui-cell__hd_in-select-after">
-        <view class="weui-label text">Category</view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker bindchange="bindCountryChange" value="{{categoryIndex}}" range="{{categoryList}}">
-          <view class="weui-select weui-select_in-select-after">{{categoryList[categoryIndex]}}</view>
-        </picker>
-      </view>
-    </view> -->
-      <!-- <view class='weui-cell weui-cell_input'>
-      <view class='weui-cell__hd'>
-        <view class='weui-label text'>Campaign</view>
-      </view>
-      <view class='weui-cell__bd'>
-        <input class='weui-input' placeholder='Campaign' placeholder-class="text"></input>
-      </view>
-    </view> -->
-      <view class='weui-cell weui-cell_input'>
-        <view class='weui-cell__hd'>
-          <view class='weui-label text'>*Owner</view>
-        </view>
-        <view class='weui-cell__bd'>
-          <input class='weui-input' placeholder='*Owner' placeholder-class="text"></input>
-        </view>
-      </view>
-      <!-- <view class='weui-cell weui-cell_input'>
-      <view class='weui-cell__hd'>
-        <view class='weui-label text'>Territory ID</view>
-      </view>
-      <view class='weui-cell__bd'>
-        <input class='weui-input' placeholder='Territory ID' placeholder-class="text"></input>
-      </view>
-    </view>
-    <view class='weui-cell weui-cell_input'>
-      <view class='weui-cell__hd'>
-        <view class='weui-label text'>Sales Organization</view>
-      </view>
-      <view class='weui-cell__bd'>
-        <input class='weui-input' placeholder='Sales Organization' placeholder-class="text"></input>
-      </view>
-    </view> -->
-      <!-- <view class='weui-cell weui-cell_input'>
-      <view class='weui-cell__hd'>
-        <view class='weui-label text'>Sales Unit</view>
-      </view>
-      <view class='weui-cell__bd'>
-        <input class='weui-input' placeholder='Sales Unit' placeholder-class="text"></input>
-      </view>
-    </view>
-    <view class="weui-cell weui-cell_select">
-      <view class="weui-cell__hd weui-cell__hd_in-select-after">
-        <view class="weui-label text">Custom Status</view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker bindchange="bindCountryChange" value="{{customStatusIndex}}" range="{{customStatusList}}">
-          <view class="weui-select weui-select_in-select-after">{{customStatusList[customeStatusIndex]}}</view>
-        </picker>
-      </view>
-    </view>
-    <view class='weui-cell weui-cell_input'>
-      <view class='weui-cell__hd'>
-        <view class='weui-label text'>Sales Order</view>
-      </view>
-      <view class='weui-cell__bd'>
-        <input class='weui-input' placeholder='Sales Order' placeholder-class="text"></input>
-      </view>
-    </view> -->
-      <!-- <view class='weui-cell weui-cell_input'>
-      <view class='weui-cell__hd'>
-        <view class='weui-label text'>Expected Value</view>
-      </view>
-      <view class='weui-cell__bd'>
-        <input class='weui-input' placeholder='Expected Value' placeholder-class="text"></input>
-      </view>
-    </view> -->
-
-    </view>
-    <view class='weui-btn-area'>
-      <button class='weui-btn' type='primary'>Save</button>
+    </view>  
+    <view class='row'>
+      <button formType='submit'>Save</button>
     </view>
   </form>
 </view>

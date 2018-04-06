@@ -1,11 +1,10 @@
 {
   "pages": [
-    "pages/appointments/appointments",
     "pages/userLogin/userLogin",
+    "pages/appointments/appointments",
     "pages/opportunity/opportunity",
-    "pages/appointments/show-detail",
+    "pages/showDetail/showDetail",
     "pages/createOpportunity/createOpportunity"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,14 +1,20 @@
 /* pages/userLogin/userLogin.wxss */
+view,form,button {
+  font-size:'72'
+}
+
 form  {
   margin-top: 100rpx;
   display: flex;
   justify-content: center;
 }
 
-.imgBox {
+ .imgBox {
   display: flex;  
   justify-content: center; 
-}
+  /* height: 200rpx; */
+  /* width: 200rpx; */
+} 
 
 .inputBox {
   display: flex;
@@ -28,13 +34,6 @@ input {
   color: #BDBDBD;
 }
 
-.delete {
-  height: 40rpx;
-  width: 40rpx;
-  position: relative;
-  right: 0
-}
-
 button {
   border-radius: 25px;
   width: 300rpx;
@@ -43,4 +42,11 @@ button {
   color: #fff;
   font-family: '72';
 
+}
+
+.slogan {
+  margin-top: 20rpx;
+  color: #509AFF;
+  font-size: 30rpx;
+  text-align: center
 }

@@ -317,7 +317,7 @@ Page({
         textShow: textShow.export(),
         textFade: textFade.export(),
         addBtnAnimation: btnAnimation.export(),
-        scrollHeight: 92,
+        scrollHeight: 94,
         background: 'background-color:#509AFF;',
         isTranslated: true
       })
@@ -448,14 +448,21 @@ Page({
         timingFunction: 'liner',
         delay: 0
       });
+      var btnAnimation = wx.createAnimation({
+        duration: 400,
+        timingFunction: 'ease-out',
+        delay: 0
+      });
       // console.log('down')
       headerAnimation.translateY(0).step();
       listAnimation.translateY(0).step();
+      btnAnimation.translateY(0).step();
       textFade.opacity(1).step();
       textShow.opacity(0).step();
       this.setData({
         headerAnimation: headerAnimation.export(),
         listAnimation: listAnimation.export(),
+        addBtnAnimation: btnAnimation.export(),  
         textFade: textFade.export(),
         textShow: textShow.export(),
         scrollHeight: 82,

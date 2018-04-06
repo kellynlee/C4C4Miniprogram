@@ -79,7 +79,7 @@ Component({
     showDetail: function (e) {
       console.log(e)
       wx.navigateTo({
-        url: '/pages/appointments/show-detail',
+        url: '/pages/showDetail/showDetail',
       })
     },
     
@@ -124,8 +124,8 @@ Component({
     switch (percentageNum) {
       case 0:
       this.setData({
-        percentageImage:''
-      });
+        percentageImage:'../../icons/0.png'
+        });
       break;
       case 10:
         this.setData({

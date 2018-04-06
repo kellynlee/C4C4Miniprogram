@@ -80,11 +80,11 @@ Component({
       }
     },
     showDetail:function (e) {
-      // console.log(this.properties.index)
+      var index = this.properties.index
       var thiz = this;
       
       wx.navigateTo({
-        url: '/pages/appointments/show-detail?detail = {{JSON.stringify(thiz.data.appointmentObj)}}',
+        url: '/pages/showDetail/showDetail',
       })
     }
   }

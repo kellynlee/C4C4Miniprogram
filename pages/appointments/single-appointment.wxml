@@ -3,9 +3,9 @@
   <view class='flex-img'>
     <span class='appointment-icon icon-yuandianxiao {{isRead == false?"is-read":"has-read"}}' ></span>
   </view>
-  <view class= 'flex-img'>
+  <!-- <view class= 'flex-img'>
     <image src="../../icons/AppointmentGrey.png" style='height: 55rpx; width: 55rpx'></image>
-  </view>
+  </view> -->
   <view class='flex-item grid' bindtap='showDetail'>
     <view class='subject'>
       <text>{{appointmentObj.Subject}}</text>
