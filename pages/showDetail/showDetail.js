@@ -18,6 +18,12 @@ Page({
    * 组件的方法列表
    */
   onLoad:function(option) {
-    console.log(option)
+      wx.request({
+        url: 'http://testc4cwc.duapp.com/mini/getDataDetail',
+        data: option,
+        success: (res) => {
+          console.log(res)
+        }
+      })
   }
 })

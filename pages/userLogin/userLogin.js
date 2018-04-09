@@ -1,5 +1,6 @@
 // pages/userLogin/userLogin.js
 const app = getApp();
+const util = require('../../utils/util.js');
 Page({
 
   /**
@@ -35,17 +36,8 @@ Page({
           url: '/pages/appointments/appointments',
         })
       },400)
-      wx.request({
-        url: 'http://testc4cwc.duapp.com/mini/formid',
-        data: {
-          ids: e.detail.formId,
-          openId: thiz.data.openID
-        },
-        method: 'POST',
-        success: (res) => {
-          console.log(res)
-        }
-      })
+      console.log(e.detail.formId)
+    // util.setFormId(this.data.openID,e.detail.formId);
     }else {
       var postData = e.detail.value;
       app.globalData.employeeName = e.detail.value.employeeName;//将employeeName注册为全局参数
@@ -76,7 +68,8 @@ Page({
             wx.hideLoading();
             wx.showToast({
               title: 'Fail',
-              mask:true
+              mask:true,
+              image: '../../icons/error.png'
             })
           }
         }
