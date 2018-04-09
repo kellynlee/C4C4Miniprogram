@@ -34,6 +34,16 @@ Component({
         this.setData({
           isClick: false
         })
+        // var animation = wx.createAnimation({
+        //   duration: 400,
+        //   timingFunction:'ease'
+        // })
+
+        // animation.translateY(100).step();
+
+        // this.setData({
+        //   rotateArrow: animation.export()
+        // })
         var animation = wx.createAnimation({
           duration: 400,
           timingFunction: 'ease',
@@ -70,7 +80,7 @@ Component({
       var id = this.properties.opportunityObj.ID
 
       wx.navigateTo({
-        url: '/pages/showDetail/showDetail?key=' + id + '&entity=OpportunityCollection',
+        url: '/pages/showDetail/showDetail?id=' + id,
       })
     },
     
@@ -110,8 +120,8 @@ Component({
     
 
     // ctxP.draw()
-    var percentageNum = parseInt(this.data.opportunityObj.ProbabilityPercent)
-    percentageNum = Math.floor(percentageNum);
+    const percentageNum = Math.floor(this.data.opportunityObj.ProbabilityPercentage);
+    console.log(percentageNum);
     switch (percentageNum) {
       case 0:
       this.setData({

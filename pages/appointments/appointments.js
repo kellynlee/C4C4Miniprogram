@@ -359,8 +359,6 @@ Page({
             wx.hideLoading();
             wx.showToast({
               title: 'Error',
-              mask: true,
-              image: '../../icons/error.png'
             })
           }
         },21000)

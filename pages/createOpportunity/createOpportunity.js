@@ -1,6 +1,5 @@
 // pages/createOpportunity.js
 const app = getApp();
-const util = require('../../utils/util.js');
 Page({
 
   /**
@@ -47,78 +46,90 @@ Page({
     var index = this.data.currencyIndex;
     postData.currencyCode = this.data.currencyList[index];
     console.log(this.data.openId)
-    util.setFormId(this.data.openId,e.detail.formId);
-    if (!util.formValidator(postData.name)) {
-      wx.showModal({
-        title: 'Warning',
-        content: 'Please Input Name!',
-        confirmText: 'Confirm',
-        showCancel: false
-      })
-      return false
-    }
-
-    if (!util.formValidate(postData.account)) {
-      wx.showModal({
-        title: 'Warning',
-        content: 'Please Input Account!',
-        confirmText: 'Confirm',
-        showCancel: false
-      })
-      return false
-    }
-
-    if (!util.formValidate(postData.owner)) {
-      wx.showModal({
-        title: 'Warning',
-        content: 'Please Input Owner!',
-        confirmText: 'Confirm',
-        showCancel: false
-      })
-      return false
-    }
-
-    if (!util.regValidator('num', postData.amount)) {
-      wx.showModal({
-        title: 'Warning',
-        content: 'Expected Value Must be Number!',
-        confirmText: 'Confirm',
-        showCancel: false
-      })
-      return false
-    }
-
-    if (!util.regValidator('num', postData.amount)) {
-      wx.showModal({
-        title: 'Warning',
-        content: 'Probability Must be Number!',
-        confirmText: 'Confirm',
-        showCancel: false
-      })
-      return false
-    } else {
-      postData.probabilityPercentage = postData.probabilityPercentage + '.000000'
-    }
-    wx.showLoading({
-      title: 'Saving',
-    })
     wx.request({
-      url: 'http://testc4cwc.duapp.com/mini/opportunity',
-      data: postData,
-      method: "POST",
+      url: 'http://testc4cwc.duapp.com/mini/formid',
+      data: {
+        ids: e.detail.formId,
+        openId: this.data.openId
+      },
+      method: 'POST',
       success: (res) => {
-        wx.hideLoading()
-        wx.showToast({
-          title: 'Saved!',
-          duration:3000,
-          success: (res) => {
-            wx.switchTab({
-              url: '/pages/opportunity/opportunity',
-            })
-          }
-        })
+        console.log(res)
       }
     })
+    // if (postData.name.length == 0) {
+    //   wx.showModal({
+    //     title: 'Warning',
+    //     content: 'Please Input Name!',
+    //     confirmText: 'Confirm',
+    //     showCancel: false
+    //   })
+    //   return false
+    // }
+
+    // if (postData.account.length == 0) {
+    //   wx.showModal({
+    //     title: 'Warning',
+    //     content: 'Please Input Account!',
+    //     confirmText: 'Confirm',
+    //     showCancel: false
+    //   })
+    //   return false
+    // }
+
+    // if (postData.owner.length == 0) {
+    //   wx.showModal({
+    //     title: 'Warning',
+    //     content: 'Please Input Owner!',
+    //     confirmText: 'Confirm',
+    //     showCancel: false
+    //   })
+    //   return false
+    // }
+
+    // var reg = /^[0-9]*$/;
+
+    // if(!reg.test(postData.amount)) {
+    //   wx.showModal({
+    //     title: 'Warning',
+    //     content: 'Expected Value Must be Number!',
+    //     confirmText: 'Confirm',
+    //     showCancel: false
+    //   })
+    //   return false
+    // }
+
+    // if (!reg.test(postData.probabilityPercentage)) {
+    //   wx.showModal({
+    //     title: 'Warning',
+    //     content: 'Probability Must be Number!',
+    //     confirmText: 'Confirm',
+    //     showCancel: false
+    //   })
+    //   return false
+    // } else {
+    //   postData.probabilityPercentage = postData.probabilityPercentage + '.000000'
+    // }
+    // wx.showLoading({
+    //   title: 'Saving',
+    // })
+    // wx.request({
+    //   url: 'http://testc4cwc.duapp.com/mini/opportunity',
+    //   data: postData,
+    //   method: "POST",
+    //   success: (res) => {
+    //     wx.hideLoading()
+    //     wx.showToast({
+    //       title: 'Saved!',
+    //       duration:3000,
+    //       success: (res) => {
+    //         wx.switchTab({
+    //           url: '/pages/opportunity/opportunity',
+    //         })
+    //       }
+    //     })
+    //   }
+    // })
   },
 
   clickInput: function (e) {

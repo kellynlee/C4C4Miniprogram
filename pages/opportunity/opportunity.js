@@ -1,5 +1,4 @@
 // pages/opportunity/opportunity.js
-var util = require('../../utils/util.js')
 Page({
 
   /**
@@ -25,232 +24,232 @@ Page({
     listAnimation: '',
     addBtnAnimation:'',
     opportunityList: [
-      // {
-      //   ProbabilityPercentage:40,
-      //   Subject: 'Driving Appointment',
-      //   Owner: 'Jason Born',
-      //   Name: {
-      //     content: 'Opportunity1'
-      //   },
-      //   AccountName: {
-      //     content:'Jack Lee'
-      //   },
-      //   StatusCodeText: 'InProcess',
-      //   Phone: '+86 1234235',
-      //   LocationName: 'Chengdu',
-      //   StartDate:'2017-12-24 14:00PM',
-      //   CloseDate:'2017-12-24 17:30PM',
-      //   isRead: false
-      // },
-      // {
-      //   ProbabilityPercentage: 30,        
-      //   Subject: 'Driving Appointment',
-      //   Owner: 'Jason Born',
-      //   Name: {
-      //     content: 'Opportunity2'
-      //   },
-      //   Account: {
-      //     content: 'Jack Lee'
-      //   },
-      //   StatusCodeText: 'InProcess',
-      //   Phone: '+86 1234235',
-      //   LocationName: 'Chengdu',
-      //   StartDate: '2017-12-24 14:00PM',
-      //   CloseDate: '2017-12-24 17:30PM',
-      //   isRead: false
-      // }, {
-      //   ProbabilityPercentage: 10,        
-      //   Subject: 'Driving Appointment',
-      //   Owner: 'Jason Born',
-      //   Name: {
-      //     content: 'Opportunity3'
-      //   },
-      //   Account: {
-      //     content: 'Jack Lee'
-      //   },
-      //   StatusCodeText: 'InProcess',
-      //   Phone: '+86 1234235',
-      //   LocationName: 'Chengdu',
-      //   StartDate: '2017-12-24 14:00PM',
-      //   CloseDate: '2017-12-24 17:30PM',
-      //   isRead: false
-      // }, {
-      //   ProbabilityPercentage: 50,        
-      //   Subject: 'Driving Appointment',
-      //   Owner: 'Jason Born',
-      //   Name: {
-      //     content: 'Opportunity4'
-      //   },
-      //   Account: {
-      //     content: 'Jack Lee'
-      //   },
-      //   StatusCodeText: 'InProcess',
-      //   Phone: '+86 1234235',
-      //   LocationName: 'Chengdu',
-      //   StartDate: '2017-12-24 14:00PM',
-      //   CloseDate: '2017-12-24 17:30PM',
-      //   isRead: false
-      // }, {
-      //   ProbabilityPercentage: 40,        
-      //   Subject: 'Driving Appointment',
-      //   Owner: 'Jason Born',
-      //   Name: {
-      //     content: 'Opportunity5'
-      //   },
-      //   Account: {
-      //     content: 'Jack Lee'
-      //   },
-      //   StatusCodeText: 'InProcess',
-      //   Phone: '+86 1234235',
-      //   LocationName: 'Chengdu',
-      //   StartDate: '2017-12-24 14:00PM',
-      //   CloseDate: '2017-12-24 17:30PM',
-      //   isRead: false
-      // }, {
-      //   ProbabilityPercentage: 0,        
-      //   Subject: 'Driving Appointment',
-      //   Owner: 'Jason Born',
-      //   Name: {
-      //     content: 'Opportunity6'
-      //   },
-      //   Account: {
-      //     content: 'Jack Lee'
-      //   },
-      //   StatusCodeText: 'InProcess',
-      //   Phone: '+86 1234235',
-      //   LocationName: 'Chengdu',
-      //   StartDate: '2017-12-24 14:00PM',
-      //   CloseDate: '2017-12-24 17:30PM',
-      //   isRead: false
-      // }, {
-      //   ProbabilityPercentage: 100,        
-      //   Subject: 'Driving Appointment',
-      //   Owner: 'Jason Born',
-      //   Name: {
-      //     content: 'Opportunity7'
-      //   },
-      //   Account: {
-      //     content: 'Jack Lee'
-      //   },
-      //   StatusCodeText: 'InProcess',
-      //   Phone: '+86 1234235',
-      //   LocationName: 'Chengdu',
-      //   StartDate: '2017-12-24 14:00PM',
-      //   CloseDate: '2017-12-24 17:30PM',
-      //   isRead: false
-      // }, {
-      //   ProbabilityPercentage: 100,
-      //   Subject: 'Driving Appointment',
-      //   Owner: 'Jason Born',
-      //   Name: {
-      //     content: 'Opportunity7'
-      //   },
-      //   Account: {
-      //     content: 'Jack Lee'
-      //   },
-      //   StatusCodeText: 'InProcess',
-      //   Phone: '+86 1234235',
-      //   LocationName: 'Chengdu',
-      //   StartDate: '2017-12-24 14:00PM',
-      //   CloseDate: '2017-12-24 17:30PM',
-      //   isRead: false
-      // }, {
-      //   ProbabilityPercentage: 100,
-      //   Subject: 'Driving Appointment',
-      //   Owner: 'Jason Born',
-      //   Name: {
-      //     content: 'Opportunity7'
-      //   },
-      //   Account: {
-      //     content: 'Jack Lee'
-      //   },
-      //   StatusCodeText: 'InProcess',
-      //   Phone: '+86 1234235',
-      //   LocationName: 'Chengdu',
-      //   StartDate: '2017-12-24 14:00PM',
-      //   CloseDate: '2017-12-24 17:30PM',
-      //   isRead: false
-      // }, {
-      //   ProbabilityPercentage: 100,
-      //   Subject: 'Driving Appointment',
-      //   Owner: 'Jason Born',
-      //   Name: {
-      //     content: 'Opportunity7'
-      //   },
-      //   Account: {
-      //     content: 'Jack Lee'
-      //   },
-      //   StatusCodeText: 'InProcess',
-      //   Phone: '+86 1234235',
-      //   LocationName: 'Chengdu',
-      //   StartDate: '2017-12-24 14:00PM',
-      //   CloseDate: '2017-12-24 17:30PM',
-      //   isRead: false
-      // }, {
-      //   ProbabilityPercentage: 100,
-      //   Subject: 'Driving Appointment',
-      //   Owner: 'Jason Born',
-      //   Name: {
-      //     content: 'Opportunity7'
-      //   },
-      //   Account: {
-      //     content: 'Jack Lee'
-      //   },
-      //   StatusCodeText: 'InProcess',
-      //   Phone: '+86 1234235',
-      //   LocationName: 'Chengdu',
-      //   StartDate: '2017-12-24 14:00PM',
-      //   CloseDate: '2017-12-24 17:30PM',
-      //   isRead: false
-      // }, {
-      //   ProbabilityPercentage: 100,
-      //   Subject: 'Driving Appointment',
-      //   Owner: 'Jason Born',
-      //   Name: {
-      //     content: 'Opportunity7'
-      //   },
-      //   Account: {
-      //     content: 'Jack Lee'
-      //   },
-      //   StatusCodeText: 'InProcess',
-      //   Phone: '+86 1234235',
-      //   LocationName: 'Chengdu',
-      //   StartDate: '2017-12-24 14:00PM',
-      //   CloseDate: '2017-12-24 17:30PM',
-      //   isRead: false
-      // }, {
-      //   ProbabilityPercentage: 100,
-      //   Subject: 'Driving Appointment',
-      //   Owner: 'Jason Born',
-      //   Name: {
-      //     content: 'Opportunity7'
-      //   },
-      //   Account: {
-      //     content: 'Jack Lee'
-      //   },
-      //   StatusCodeText: 'InProcess',
-      //   Phone: '+86 1234235',
-      //   LocationName: 'Chengdu',
-      //   StartDate: '2017-12-24 14:00PM',
-      //   CloseDate: '2017-12-24 17:30PM',
-      //   isRead: false
-      // }, {
-      //   ProbabilityPercentage: 100,
-      //   Subject: 'Driving Appointment',
-      //   Owner: 'Jason Born',
-      //   Name: {
-      //     content: 'Opportunity7'
-      //   },
-      //   Account: {
-      //     content: 'Jack Lee'
-      //   },
-      //   StatusCodeText: 'InProcess',
-      //   Phone: '+86 1234235',
-      //   LocationName: 'Chengdu',
-      //   StartDate: '2017-12-24 14:00PM',
-      //   CloseDate: '2017-12-24 17:30PM',
-      //   isRead: false
-      // }
+      {
+        ProbabilityPercentage:40,
+        Subject: 'Driving Appointment',
+        Owner: 'Jason Born',
+        Name: {
+          content: 'Opportunity1'
+        },
+        Account: {
+          content:'Jack Lee'
+        },
+        StatusCodeText: 'InProcess',
+        Phone: '+86 1234235',
+        LocationName: 'Chengdu',
+        StartDate:'2017-12-24 14:00PM',
+        CloseDate:'2017-12-24 17:30PM',
+        isRead: false
+      },
+      {
+        ProbabilityPercentage: 30,        
+        Subject: 'Driving Appointment',
+        Owner: 'Jason Born',
+        Name: {
+          content: 'Opportunity2'
+        },
+        Account: {
+          content: 'Jack Lee'
+        },
+        StatusCodeText: 'InProcess',
+        Phone: '+86 1234235',
+        LocationName: 'Chengdu',
+        StartDate: '2017-12-24 14:00PM',
+        CloseDate: '2017-12-24 17:30PM',
+        isRead: false
+      }, {
+        ProbabilityPercentage: 10,        
+        Subject: 'Driving Appointment',
+        Owner: 'Jason Born',
+        Name: {
+          content: 'Opportunity3'
+        },
+        Account: {
+          content: 'Jack Lee'
+        },
+        StatusCodeText: 'InProcess',
+        Phone: '+86 1234235',
+        LocationName: 'Chengdu',
+        StartDate: '2017-12-24 14:00PM',
+        CloseDate: '2017-12-24 17:30PM',
+        isRead: false
+      }, {
+        ProbabilityPercentage: 50,        
+        Subject: 'Driving Appointment',
+        Owner: 'Jason Born',
+        Name: {
+          content: 'Opportunity4'
+        },
+        Account: {
+          content: 'Jack Lee'
+        },
+        StatusCodeText: 'InProcess',
+        Phone: '+86 1234235',
+        LocationName: 'Chengdu',
+        StartDate: '2017-12-24 14:00PM',
+        CloseDate: '2017-12-24 17:30PM',
+        isRead: false
+      }, {
+        ProbabilityPercentage: 40,        
+        Subject: 'Driving Appointment',
+        Owner: 'Jason Born',
+        Name: {
+          content: 'Opportunity5'
+        },
+        Account: {
+          content: 'Jack Lee'
+        },
+        StatusCodeText: 'InProcess',
+        Phone: '+86 1234235',
+        LocationName: 'Chengdu',
+        StartDate: '2017-12-24 14:00PM',
+        CloseDate: '2017-12-24 17:30PM',
+        isRead: false
+      }, {
+        ProbabilityPercentage: 0,        
+        Subject: 'Driving Appointment',
+        Owner: 'Jason Born',
+        Name: {
+          content: 'Opportunity6'
+        },
+        Account: {
+          content: 'Jack Lee'
+        },
+        StatusCodeText: 'InProcess',
+        Phone: '+86 1234235',
+        LocationName: 'Chengdu',
+        StartDate: '2017-12-24 14:00PM',
+        CloseDate: '2017-12-24 17:30PM',
+        isRead: false
+      }, {
+        ProbabilityPercentage: 100,        
+        Subject: 'Driving Appointment',
+        Owner: 'Jason Born',
+        Name: {
+          content: 'Opportunity7'
+        },
+        Account: {
+          content: 'Jack Lee'
+        },
+        StatusCodeText: 'InProcess',
+        Phone: '+86 1234235',
+        LocationName: 'Chengdu',
+        StartDate: '2017-12-24 14:00PM',
+        CloseDate: '2017-12-24 17:30PM',
+        isRead: false
+      }, {
+        ProbabilityPercentage: 100,
+        Subject: 'Driving Appointment',
+        Owner: 'Jason Born',
+        Name: {
+          content: 'Opportunity7'
+        },
+        Account: {
+          content: 'Jack Lee'
+        },
+        StatusCodeText: 'InProcess',
+        Phone: '+86 1234235',
+        LocationName: 'Chengdu',
+        StartDate: '2017-12-24 14:00PM',
+        CloseDate: '2017-12-24 17:30PM',
+        isRead: false
+      }, {
+        ProbabilityPercentage: 100,
+        Subject: 'Driving Appointment',
+        Owner: 'Jason Born',
+        Name: {
+          content: 'Opportunity7'
+        },
+        Account: {
+          content: 'Jack Lee'
+        },
+        StatusCodeText: 'InProcess',
+        Phone: '+86 1234235',
+        LocationName: 'Chengdu',
+        StartDate: '2017-12-24 14:00PM',
+        CloseDate: '2017-12-24 17:30PM',
+        isRead: false
+      }, {
+        ProbabilityPercentage: 100,
+        Subject: 'Driving Appointment',
+        Owner: 'Jason Born',
+        Name: {
+          content: 'Opportunity7'
+        },
+        Account: {
+          content: 'Jack Lee'
+        },
+        StatusCodeText: 'InProcess',
+        Phone: '+86 1234235',
+        LocationName: 'Chengdu',
+        StartDate: '2017-12-24 14:00PM',
+        CloseDate: '2017-12-24 17:30PM',
+        isRead: false
+      }, {
+        ProbabilityPercentage: 100,
+        Subject: 'Driving Appointment',
+        Owner: 'Jason Born',
+        Name: {
+          content: 'Opportunity7'
+        },
+        Account: {
+          content: 'Jack Lee'
+        },
+        StatusCodeText: 'InProcess',
+        Phone: '+86 1234235',
+        LocationName: 'Chengdu',
+        StartDate: '2017-12-24 14:00PM',
+        CloseDate: '2017-12-24 17:30PM',
+        isRead: false
+      }, {
+        ProbabilityPercentage: 100,
+        Subject: 'Driving Appointment',
+        Owner: 'Jason Born',
+        Name: {
+          content: 'Opportunity7'
+        },
+        Account: {
+          content: 'Jack Lee'
+        },
+        StatusCodeText: 'InProcess',
+        Phone: '+86 1234235',
+        LocationName: 'Chengdu',
+        StartDate: '2017-12-24 14:00PM',
+        CloseDate: '2017-12-24 17:30PM',
+        isRead: false
+      }, {
+        ProbabilityPercentage: 100,
+        Subject: 'Driving Appointment',
+        Owner: 'Jason Born',
+        Name: {
+          content: 'Opportunity7'
+        },
+        Account: {
+          content: 'Jack Lee'
+        },
+        StatusCodeText: 'InProcess',
+        Phone: '+86 1234235',
+        LocationName: 'Chengdu',
+        StartDate: '2017-12-24 14:00PM',
+        CloseDate: '2017-12-24 17:30PM',
+        isRead: false
+      }, {
+        ProbabilityPercentage: 100,
+        Subject: 'Driving Appointment',
+        Owner: 'Jason Born',
+        Name: {
+          content: 'Opportunity7'
+        },
+        Account: {
+          content: 'Jack Lee'
+        },
+        StatusCodeText: 'InProcess',
+        Phone: '+86 1234235',
+        LocationName: 'Chengdu',
+        StartDate: '2017-12-24 14:00PM',
+        CloseDate: '2017-12-24 17:30PM',
+        isRead: false
+      }
     ]
   },
 
@@ -367,6 +366,15 @@ Page({
    */
   onLoad: function (options) {
   var thiz = this;
+  // wx.request({
+  //   url: 'http://127.0.0.1:8080/getOpportunityList',
+  //   data: {
+  //     accountId:'1004'
+  //   },
+  //   success: function (res) {
+  //     console.log(res)
+  //   }
+  // })
   },
 
   /**
@@ -409,6 +417,7 @@ Page({
         weekDay = 'Sunday';
         break;
     }
+    console.log(weekDay)
     this.setData({
       today: weekDay + ',' + day + ' ' + month + ' ' + year
     })
@@ -419,60 +428,6 @@ Page({
    */
   onShow: function () {
     var openId = wx.getStorageSync('openId');
-    if (this.data.opportunityList.length == 0) {
-      wx.showLoading({
-        title: 'loading',
-        mask: true
-      })
-      try {
-        wx.request({
-          url: 'http://testc4cwc.duapp.com/mini/opportunity',
-          data: {
-            'openId': openId
-          },
-          success: res => {
-            console.log(res)
-            wx.hideLoading();
-            var res = res.data.opportunities,
-              length = res.length;
-            for (let i = 0; i < length; i++) {
-              if (res[i].CloseDate!= null) {
-                let date = new Date(parseInt(res[i].CloseDate.match(/[\d]/g).join('')));
-                res[i].CloseDate = util.dateSplice(date);
-              } else {
-                res[i].CloseDate = '';
-              }
-              if (res[i].StartDate != null) {
-                let date = new Date(parseInt(res[i].StartDate.match(/[\d]/g).join('')));
-                res[i].StartDate = util.dateSplice(date)
-              } else {
-                res[i].StartDate = '';
-              }
-            }
-            this.setData({
-              opportunityList: res,
-              totalNum: length
-            })
-          }
-        })
-      } catch (e) {
-        // console.log(e)
-        // wx.hideLoading();
-        // wx.showToast({
-        //   title: 'Error',
-        // })
-      }
-      setTimeout(() => {
-        if (this.data.opportunityList.length == 0) {
-          wx.hideLoading();
-          wx.showToast({
-            title: 'Error',
-            mask: true,
-            image: '../../icons/error.png'
-          })
-        }
-      }, 31000)
-    }
     if (this.data.isTranslated) {
       var headerAnimation = wx.createAnimation({
         duration: 400,
@@ -516,6 +471,16 @@ Page({
         isTranslated: false
       })
     }
+    // wx.request({
+    //   url: 'http://testc4cwc.duapp.com/mini/opportunity',
+    //   data: {
+    //     'openId': openId
+    //     },
+    //   success: (res) => {
+    //     console.log(res)
+    //   }
+    // })
+  
   },
 
   /**

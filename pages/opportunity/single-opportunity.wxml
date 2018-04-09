@@ -10,10 +10,10 @@
        <text>{{opportunityObj.Name.content}}</text> 
     </view>
     <view class='owner'>
-       <text>{{opportunityObj.AccountName.content}}</text> 
+       <text>{{opportunityObj.Account.content}}</text> 
     </view>  
     <view class = 'time'>
-       <text>{{opportunityObj.StartDate + '-'+ opportunityObj.CloseDate}}</text> 
+       <text>{{opportunityObj.StartDate + '-'+ opportunityObj.EndDate}}</text> 
     </view>
   </view>
   <!-- <canvas canvas-id='circleBg' class='circle flex-item'></canvas>
