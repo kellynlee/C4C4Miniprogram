@@ -275,17 +275,17 @@ Page({
       listLeftHeight = leftHeight;
     let currentPos = e.changedTouches[0].clientY;
     var headerAnimation = wx.createAnimation({
-      duration: 400,
+      duration: 200,
       timingFunction: 'ease-out',
       delay: 0
     });
     var listAnimation = wx.createAnimation({
-      duration: 400,
+      duration: 200,
       timingFunction: 'ease-out',
       delay: 0
     });
     var btnAnimation = wx.createAnimation({
-      duration: 400,
+      duration: 200,
       timingFunction: 'ease-out',
       delay:0
     });
@@ -297,14 +297,14 @@ Page({
         })
       }
       var textFade = wx.createAnimation({
-        duration: 300,
+        duration: 200,
         timingFunction: 'liner',
         delay: 0
       });
       var textShow = wx.createAnimation({
-        duration: 300,
+        duration: 200,
         timingFunction: 'liner',
-        delay: 200
+        delay: 100
       });
       headerAnimation.translateY(-leftHeight).step();
       listAnimation.translateY(-listLeftHeight).step();
@@ -318,7 +318,7 @@ Page({
         textFade: textFade.export(),
         addBtnAnimation: btnAnimation.export(),
         scrollHeight: 94,
-        background: 'background-color:#509AFF;',
+        background: 'background-position: 100% -200%; transition:background 1s ease-out;',
         isTranslated: true
       })
     } else {
@@ -326,7 +326,7 @@ Page({
         var textFade = wx.createAnimation({
           duration: 200,
           timingFunction: 'liner',
-          delay: 200
+          delay: 100
         });
         var textShow = wx.createAnimation({
           duration: 200,
@@ -346,7 +346,7 @@ Page({
           textShow: textShow.export(),
           addBtnAnimation: btnAnimation.export(),          
           scrollHeight: 82,
-          background: 'background: linear-gradient(to bottom, #509AFF, #60bdfe);',
+          background: 'background-position: 100% 80%; transition:background 1s ease-out;',
           isTranslated: false
         })
       }
@@ -427,6 +427,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var openId = wx.getStorageSync('openId');
     if (this.data.isTranslated) {
       var headerAnimation = wx.createAnimation({
         duration: 400,
@@ -470,6 +471,15 @@ Page({
         isTranslated: false
       })
     }
+    // wx.request({
+    //   url: 'http://testc4cwc.duapp.com/mini/opportunity',
+    //   data: {
+    //     'openId': openId
+    //     },
+    //   success: (res) => {
+    //     console.log(res)
+    //   }
+    // })
   
   },
 

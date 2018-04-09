@@ -32,6 +32,9 @@ page {
   width: 100%;
   position: absolute; 
   overflow: hidden;
+  background:linear-gradient(to bottom,#509AFF 50%, #60bdfe 100%);
+  background-size: 100% 200%; 
+  background-position: 100% 80%;
   /* z-index: 2; */
   /* margin-bottom: 20rpx; */
   /* border-bottom: 1px */

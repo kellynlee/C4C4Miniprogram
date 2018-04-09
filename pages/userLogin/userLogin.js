@@ -9,7 +9,8 @@ Page({
     openID: null,
     employeeID: null,
     employeeName:null,
-    isAssigned:false,
+    isAssigned:null,
+    fadeOut:''
   },
 
   // startInput: function (e) {
@@ -18,10 +19,32 @@ Page({
   //   })
   // },
 
-  infoSubmit: function (e) { 
+  infoSubmit: function (e) {
+    var thiz = this;
     if(this.data.isAssigned) {
-      wx.switchTab({
-        url: '/pages/appointments/appointments',
+      var fadeOut = wx.createAnimation({
+        duration:600,
+        timingFunction: 'ease-out'
+      });
+      fadeOut.translateX(-300).opacity(0).step();
+      this.setData({
+        fadeOut: fadeOut
+      })
+      setTimeout(function(){
+        wx.switchTab({
+          url: '/pages/appointments/appointments',
+        })
+      },400)
+      wx.request({
+        url: 'http://testc4cwc.duapp.com/mini/formid',
+        data: {
+          ids: e.detail.formId,
+          openId: thiz.data.openID
+        },
+        method: 'POST',
+        success: (res) => {
+          console.log(res)
+        }
       })
     }else {
       var postData = e.detail.value;
@@ -36,8 +59,7 @@ Page({
         data: postData,
         method: 'POST',
         success: function (res) {
-          // console.log(res)
-          // if (res == 'success') {
+          if (res.data.result == 'success') {
           wx.setStorageSync('employeeName', postData.employeeName)
           wx.hideLoading();
           wx.showToast({
@@ -50,8 +72,13 @@ Page({
               })
             }
           })
-
-          // }
+          } else {
+            wx.hideLoading();
+            wx.showToast({
+              title: 'Fail',
+              mask:true
+            })
+          }
         }
       })
     }
@@ -67,6 +94,10 @@ Page({
       this.setData({
         isAssigned: true,
         employeeName: employeeName
+      })
+    } else {
+      this.setData({
+        isAssigned: false
       })
     }
     if(openId) {

@@ -2,7 +2,7 @@
   <view class='title'>
     Creat Opportunity
   </view>
-  <form class='container' bindsubmit='submitOpportunity'>
+  <form class='container' bindsubmit='submitOpportunity' report-submit='true'>
     <view class='row'>
       <view class='formTitle'>
         <text style='color: #F44336;'>*</text>
@@ -52,7 +52,7 @@
       </view>
     </view>  
     <view class='row'>
-      <button formType='submit'>Save</button>
+      <button formType='submit' >Save</button>
     </view>
   </form>
 </view>

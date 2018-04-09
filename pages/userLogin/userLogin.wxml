@@ -1,20 +1,20 @@
 <!--pages/userLogin/userLogin.wxml-->
 <!-- <text>pages/userLogin/userLogin.wxml</text> -->
 <view class='container'>
-  <form bindsubmit = 'infoSubmit'>
+  <form bindsubmit = 'infoSubmit' animation='{{fadeOut}}' report-submit='true'>
     <view class='imgBox'>
       <image src='../../icons/user.png' style='height: 200rpx; width: 200rpx'></image>
     </view>
-    <block wx:if='{{!isAssigned}}'>
+    <block wx:if='{{isAssigned === false}}'>
       <view class='inputBox' >
-       <input name = 'employeeName' placeholder='EmplyeeName' placeholder-class='innerStyle' value=''></input> 
+       <input name = 'employeeName' placeholder='EmplyeeName' placeholder-class='innerStyle' value='crm ops'></input> 
     </view>
     <view class='inputBox'>
-      <input name = 'employeeId' placeholder='EmployeeID' placeholder-class='innerStyle' value='' ></input>
+      <input name = 'employeeId' placeholder='EmployeeID' placeholder-class='innerStyle' value='8000001912' ></input>
     </view>
     <button formType='submit'>Assign</button>
     </block>
-     <block wx:if='{{isAssigned}}'>
+     <block wx:if='{{isAssigned === true}}'>
       <view class='slogan'>
         Welcome {{employeeName}} !
       </view>

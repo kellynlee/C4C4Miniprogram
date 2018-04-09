@@ -27,7 +27,7 @@ Page({
     barHeight:200,
     scrollHeight:82,
     screenHeight:'', 
-    background: 'background: linear-gradient(to bottom, #509AFF, #60bdfe);',
+    background: '',
     startPos:'',
     isToTop:'',
     textFade:'',
@@ -172,12 +172,12 @@ Page({
     listLeftHeight = leftHeight ;
     let currentPos = e.changedTouches[0].clientY;
     var headerAnimation = wx.createAnimation({
-      duration: 400,
+      duration: 200,
       timingFunction: 'ease-out',
       delay: 0
     });
     var listAnimation = wx.createAnimation({
-      duration: 400,
+      duration: 200,
       timingFunction: 'ease-out',
       delay: 0
     });
@@ -190,14 +190,14 @@ Page({
         })
       }
       var textFade = wx.createAnimation({
-        duration: 300,
+        duration: 200,
         timingFunction: 'liner',
         delay: 0
       });
       var textShow = wx.createAnimation({
-        duration: 300,
+        duration: 200,
         timingFunction: 'liner',
-        delay: 200
+        delay: 100
       });
       headerAnimation.translateY(-leftHeight).step();
       listAnimation.translateY(-listLeftHeight).step();
@@ -209,7 +209,7 @@ Page({
         textShow: textShow.export(),
         textFade: textFade.export(),
         scrollHeight: 94,
-        background: 'background-color:#509AFF;',
+        background: 'background-position: 100% -200%; transition:background 1s ease-out;',
         isTranslated:true
       })
     }else{
@@ -217,7 +217,7 @@ Page({
         var textFade = wx.createAnimation({
           duration: 200,
           timingFunction: 'liner',
-          delay: 200
+          delay: 100
         });
         var textShow = wx.createAnimation({
           duration: 200,
@@ -235,7 +235,7 @@ Page({
           textFade: textFade.export(),
           textShow: textShow.export(),
           scrollHeight: 82,
-          background: 'background: linear-gradient(to bottom, #509AFF, #60bdfe);',
+          background: 'background-position: 100% 80%; transition:background 1s ease-out;',
           isTranslated: false
         })
       }
@@ -313,39 +313,55 @@ Page({
           title: 'loading',
           mask: true
         })
-        wx.request({
-          url: 'http://testc4cwc.duapp.com/mini/appointment',
-          data: {
-            'openId': openId
-          },
-          success: res => {
-            console.log(res)
-            wx.hideLoading();
-            var res = res.data.appointments,
-              length = res.length;
-            for (let i = 0; i < length; i++) {
-              if (res[i].LocationName.length > 36) {
-                res[i].LocationName = res[i].LocationName.slice(0, 36) + "..."
+        try {
+          wx.request({
+            url: 'http://testc4cwc.duapp.com/mini/appointment',
+            data: {
+              'openId': openId
+            },
+            success: res => {
+              console.log(res)
+              wx.hideLoading();
+              var res = res.data.appointments,
+                length = res.length;
+              for (let i = 0; i < length; i++) {
+                if (res[i].LocationName.length > 36) {
+                  res[i].LocationName = res[i].LocationName.slice(0, 36) + "..."
+                }
+                if (res[i].EndDateTime.content != null) {
+                  let date = new Date(parseInt(res[i].EndDateTime.content.match(/[\d]/g).join('')));
+                  res[i].EndDateTime.content = date.dateSplice(date);
+                } else {
+                  res[i].EndDateTime.content = '';
+                }
+                if (res[i].StartDateTime.content != null) {
+                  let date = new Date(parseInt(res[i].StartDateTime.content.match(/[\d]/g).join('')));
+                  res[i].StartDateTime.content = date.dateSplice(date)
+                } else {
+                  res[i].StartDateTime.content = '';
+                }
               }
-              if (res[i].EndDateTime.content != null) {
-                let date = new Date(parseInt(res[i].EndDateTime.content.match(/[\d]/g).join('')));
-                res[i].EndDateTime.content = date.dateSplice(date);
-              } else {
-                res[i].EndDateTime.content = '';
-              }
-              if (res[i].StartDateTime.content != null) {
-                let date = new Date(parseInt(res[i].StartDateTime.content.match(/[\d]/g).join('')));
-                res[i].StartDateTime.content = date.dateSplice(date)
-              } else {
-                res[i].StartDateTime.content = '';
-              }
+              thiz.setData({
+                appointmentList: res,
+                totalNum: length
+              })
             }
-            thiz.setData({
-              appointmentList: res,
-              totalNum: length
+          })
+        } catch (e) {
+          // console.log(e)
+          // wx.hideLoading();
+          // wx.showToast({
+          //   title: 'Error',
+          // })
+        }
+        setTimeout(() => {
+          if (this.data.appointmentList.length == 0) {
+            wx.hideLoading();
+            wx.showToast({
+              title: 'Error',
             })
           }
-        })
+        },21000)
     }
     if (this.data.isTranslated) {
       var headerAnimation = wx.createAnimation({

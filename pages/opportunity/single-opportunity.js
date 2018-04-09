@@ -77,9 +77,10 @@ Component({
       }
     },
     showDetail: function (e) {
-      console.log(e)
+      var id = this.properties.opportunityObj.ID
+
       wx.navigateTo({
-        url: '/pages/showDetail/showDetail',
+        url: '/pages/showDetail/showDetail?id=' + id,
       })
     },
     

@@ -80,11 +80,11 @@ Component({
       }
     },
     showDetail:function (e) {
-      var index = this.properties.index
-      var thiz = this;
+      // console.log(this.properties.appointmentObj)
+      var id = this.properties.appointmentObj.ID
       
       wx.navigateTo({
-        url: '/pages/showDetail/showDetail',
+        url: '/pages/showDetail/showDetail?id='+id,
       })
     }
   }
