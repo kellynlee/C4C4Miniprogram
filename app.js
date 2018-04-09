@@ -38,6 +38,10 @@ App({
   globalData: {
     userInfo: null,
     openID: null,
-    employeeName:null
+    employeeName:null,
+    readList:{
+      appotintment:[],
+      opportubity:[]
+    }
   }
 })

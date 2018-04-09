@@ -1,4 +1,6 @@
 // pages/appointments/single-appointment.js
+const app = getApp();
+var readlist = app.globalData.readList.appoitment;
 Component({
   /**
    * 组件的属性列表
@@ -57,15 +59,11 @@ Component({
 
         this.setData({
           rotateArrow: animation.export(),
-          //  padding: '0rpx 0rpx 0rpx 60rpx;'
         })
       }else {
         this.setData({
           isClick: true
         })
-        // this.setData({
-        //   padding: '20rpx 40rpx 20rpx 60rpx;'
-        // })
         var animation = wx.createAnimation({
           duration: 400,
           timingFunction: 'ease',
@@ -81,10 +79,10 @@ Component({
     },
     showDetail:function (e) {
       // console.log(this.properties.appointmentObj)
-      var id = this.properties.appointmentObj.ID
+      var id = this.properties.appointmentObj.ObjectID
       
       wx.navigateTo({
-        url: '/pages/showDetail/showDetail?id='+id,
+        url: '/pages/showDetail/showDetail?key='+ id + '&entity=AppointmentCollection',
       })
     }
   }
