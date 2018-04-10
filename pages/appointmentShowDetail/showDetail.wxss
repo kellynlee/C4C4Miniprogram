@@ -39,7 +39,7 @@ text {
  }
  
 .tab-item {
-  margin: 0 36rpx;
+  margin: 0 32rpx;
   display: inline-block;
 }
 
@@ -70,11 +70,8 @@ text {
   display: flex;
   flex-grow: row no-wrap;
   justify-content: space-between;
-  padding: 30rpx;
   box-sizing: border-box;
-  height: 180rpx;
   align-items: center;
-  border-bottom: 2rpx solid #f2f2f2;
 }
 
 .tab-content {
@@ -85,5 +82,10 @@ text {
 }
 
 .scroll-h {
-  height: 100%;
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 1%;
+  margin-bottom: 0%;
+  display: block;
 }

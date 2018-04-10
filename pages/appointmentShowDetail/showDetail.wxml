@@ -8,14 +8,15 @@
     </block>
   </scroll-view>
   <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:100%">
-    <swiper-item wx:for="{{[0,1,2,3,4,5]}}">
-      <scroll-view scroll-y="true" class="scroll-h">
-        <block wx:for="{{[1,2,3,4,5,6]}}" wx:key="*this">
-          <view class="item-ans">
-            <view>Cards</view>
-          </view>
-        </block>
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" style="height:100%">
+        <image class="scroll-h" src="../../icons/Group 2 Copy.png" mode="widthFix"></image>
+        <image class="scroll-h" src="../../icons/Group 2 Copy 9.png" mode="widthFix" style="margin-bottom: 128rpx"></image>
       </scroll-view>
+    </swiper-item>
+    <!-- PRODUCTS -->
+    <swiper-item>
+      <image class="scroll-h" src="../../icons/Group 5 Copy.png" mode="widthFix"></image>
     </swiper-item>
   </swiper>
 </view>
