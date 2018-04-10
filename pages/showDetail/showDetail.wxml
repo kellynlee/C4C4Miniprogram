@@ -13,7 +13,7 @@
         <image class="scroll-h" src="../../icons/Group 7 Copy 2.png" mode="widthFix"></image>
         <image class="scroll-h" src="../../icons/Group 5.png" mode="widthFix"></image>
         <image class="scroll-h" src="../../icons/Group 7.png" mode="widthFix"></image>
-        <image class="scroll-h" src="../../icons/Group 7 Copy.png" mode="widthFix"></image>
+        <image class="scroll-h" src="../../icons/Group 7 Copy.png" mode="widthFix" style="margin-bottom: 128rpx"></image>
       </scroll-view>
     </swiper-item>
     <!-- PRODUCTS -->
