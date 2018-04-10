@@ -63,12 +63,14 @@ text {
   /* background-color: antiquewhite */
 }
 
-.drag-list {
-  height: 140rpx;
-  background-color: #fff;
-  border-bottom: 1rpx solid #dbdbdb;  
-  padding: 10rpx 40rpx 20rpx 60rpx;
-  /* margin-top:-20rpx; */
+span.is-read{
+  color: #62b900;
+  font-size: 40rpx;
+}
+
+span.has-read {
+  opacity: 0;
+  font-size: 40rpx;
 }
 
 .detail {

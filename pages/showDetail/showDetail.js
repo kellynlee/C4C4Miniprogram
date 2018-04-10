@@ -1,4 +1,7 @@
 // pages/appointments/show-detail.js
+const app = getApp();
+const util = require('../../utils/util.js');
+
 Page({
   properties: {
     appointmentDetail:{
@@ -19,7 +22,7 @@ Page({
    */
   onLoad:function(option) {
       wx.request({
-        url: 'http://testc4cwc.duapp.com/mini/getDataDetail',
+        url: util.urlList.getDetail,
         data: option,
         success: (res) => {
           console.log(res)

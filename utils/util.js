@@ -58,10 +58,20 @@ const formValidator = (data) => {
   }
 }
 
+const url = 'https://testc4cwc.duapp.com/mini/'
+
+const urlList = {
+  getAppointment: url+'appointment',
+  getOpportunity: url+'opportunity',
+  assignEmployee: url+'employee',
+  getDetail: url +'getDataDetail'
+}
+
 module.exports = {
   formatTime: formatTime,
   dateSplice: dateSplice,
   setFormId: setFormId,
   regValidator: regValidator,
-  formValidator: formValidator
+  formValidator: formValidator,
+  urlList: urlList
 }

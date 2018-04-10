@@ -1,4 +1,5 @@
 // pages/appointments/single-appointment.js
+const app = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -25,15 +26,15 @@ Component({
    */
   methods: {
     showDetail: function (e) {
-      if (this.properties.opportunityObj.isRead == undefined) {
+      if (this.properties.opportunityObj.isRead == undefined || this.properties.opportunityObj.isRead == false) {
         this.setData({
           isRead: true
         });
         this.properties.opportunityObj.isRead = true;
-        app.globalData.readList.opportunity.push(this.properties.opportunityObj.ID);
+        app.globalData.readList.opportunity.push(this.properties.opportunityObj.OpportunityID);
+        console.log(app.globalData.readList.opportunity)
       }
-      var id = this.properties.opportunityObj.ID
-
+      var id = this.properties.opportunityObj.OpportunityID
       wx.navigateTo({
         url: '/pages/showDetail/showDetail?key=' + id + '&entity=OpportunityCollection',
       })
@@ -134,6 +135,11 @@ Component({
       
     }
 
+    if (this.properties.opportunityObj.isRead != undefined && this.properties.opportunityObj.isRead === true) {
+      this.setData({
+        isRead: true
+      })
+    }
   }
   
 })

@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
+const util = require('../../utils/util.js');
 
 Date.prototype.dateSplice = function(date) {
   // console.log(this)
@@ -296,13 +297,20 @@ Page({
         })
         try {
           wx.request({
-            url: 'http://testc4cwc.duapp.com/mini/appointment',
+            url: util.urlList.getAppointment,
             data: {
               'openId': openId
             },
             success: res => {
               console.log(res)
               wx.hideLoading();
+              if(res.length == 0) {
+                wx.showToast({
+                  title: 'No Data',
+                  image:'../../icons/error.png'
+                })
+                return false
+              }
               var res = res.data.appointments,
                 length = res.length;
               for (let i = 0; i < length; i++) {
