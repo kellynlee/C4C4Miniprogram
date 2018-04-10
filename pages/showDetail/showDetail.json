@@ -3,5 +3,5 @@
   "usingComponents": {},
   "navigationBarTitleText": "Detail",
   "navigationBarTextStyle": "white",
-  "disableScroll": true
+  "disableScroll": false
 }

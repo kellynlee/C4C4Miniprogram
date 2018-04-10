@@ -5,7 +5,7 @@ Page({
     winHeight: "", //窗口高度
     currentTab: 0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
-    tabs: ["OVERVIEW", "FEED", "CONTACTS", "PRODUCTS", "ACTIVITIES", "OTHERS"]
+    tabs: ["OVERVIEW", "PRODUCTS", "REVENUE SPLITS", "FEED", "SALES ACTIVITIES", "COMPETITORS", "SALES TEAM", "CONTACTS"]
   },
   // 滚动切换标签样式
   switchTab: function(e) {
