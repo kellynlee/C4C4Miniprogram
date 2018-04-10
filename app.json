@@ -3,7 +3,8 @@
     "pages/userLogin/userLogin",
     "pages/appointments/appointments",
     "pages/opportunity/opportunity",
-    "pages/showDetail/showDetail",
+    "pages/opportunityShowDetail/showDetail",
+    "pages/appointmentShowDetail/showDetail",
     "pages/createOpportunity/createOpportunity"
   ],
   "window": {
