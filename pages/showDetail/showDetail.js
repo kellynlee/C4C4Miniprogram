@@ -1,5 +1,8 @@
-// // pages/appointments/show-detail.js
-var app = getApp();
+
+// pages/appointments/show-detail.js
+const app = getApp();
+const util = require('../../utils/util.js');
+
 Page({
   data: {
     winHeight: "", //窗口高度
@@ -53,5 +56,11 @@ Page({
       }
     });
   },
+
   footerTap: app.footerTap
 });
+
+  /**
+   * 组件的方法列表
+   */
+  

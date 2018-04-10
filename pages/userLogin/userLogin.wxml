@@ -7,10 +7,10 @@
     </view>
     <block wx:if='{{isAssigned === false}}'>
       <view class='inputBox' >
-       <input name = 'employeeName' placeholder='EmplyeeName' placeholder-class='innerStyle' value='crm ops'></input> 
+       <input name = 'employeeName' placeholder='EmplyeeName' placeholder-class='innerStyle' value=''></input> 
     </view>
     <view class='inputBox'>
-      <input name = 'employeeId' placeholder='EmployeeID' placeholder-class='innerStyle' value='8000001912' ></input>
+      <input name = 'employeeId' placeholder='EmployeeID' placeholder-class='innerStyle' value='' ></input>
     </view>
     <button formType='submit'>Assign</button>
     </block>

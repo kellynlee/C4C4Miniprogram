@@ -1,6 +1,7 @@
 // pages/userLogin/userLogin.js
 const app = getApp();
 const util = require('../../utils/util.js');
+
 Page({
 
   /**
@@ -47,7 +48,7 @@ Page({
         mask: true
       })
       wx.request({
-        url: 'http://testc4cwc.duapp.com/mini/employee',
+        url: util.urlList.assignEmployee,
         data: postData,
         method: 'POST',
         success: function (res) {

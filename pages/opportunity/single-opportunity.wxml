@@ -1,6 +1,6 @@
 <view class='flex-wrp single-style'>
   <view class='flex-img'>
-    <view class='appointment-icon icon-yuandianxiao {{isRead == false?"is-read":"has-read"}}'></view>
+    <span class='appointment-icon icon-yuandianxiao {{isRead == false?"is-read":"has-read"}}'></span>
   </view>
   <!-- <view class= 'flex-img'>
     <image src="../../icons/OpportunityGrey.png" style='height: 60rpx; width: 60rpx; vertival-align:middle'></image>

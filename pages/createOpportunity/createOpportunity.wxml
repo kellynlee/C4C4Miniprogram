@@ -18,7 +18,7 @@
         <text class='subTitle' style='padding-left:4rpx'>Account</text>
       </view>
       <view class='formBody'>
-        <input placeholder='Input Account' name='account' placeholder-class='innerStyle'></input>
+        <input placeholder='Input Account' name='account' placeholder-class='innerStyle' value='{{employeeName}}'></input>
       </view>
     </view>
     <view class='row'>
