@@ -22,7 +22,7 @@ Page({
     hasUserInfo: false,
     today:'',
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    totalNum:0,
+    totalNum:'',
     accountName: 'Jason Born',
     barHeight:200,
     scrollHeight:82,
@@ -286,28 +286,9 @@ Page({
   },
 
   onShow: function () {
-    var openId = wx.getStorageSync('openId')
+    var openId = wx.getStorageSync('openId');
+    var readList = wx.getStorageSync('readAppointment');
     var thiz = this;
-    // try {
-    //   var employeeName = wx.getStorageSync('employeeName');
-    //   if (employeeName) {
-    //     this.setData({
-    //       employeeName:employeeName
-    //     })
-    //   }else {
-    //     wx.showModal({
-    //       title: 'Not Assign',
-    //       content: 'Your WechatId has not assigned to C4C',
-    //       success:(res) => {
-    //         wx.navigateTo({
-    //           url: '/pages/userLogin/userLogin',
-    //         })
-    //       }
-    //     })
-    //   }
-    // } catch(e) {
-    //   console.log(e)
-    // }
     if(this.data.appointmentList.length == 0) {
         wx.showLoading({
           title: 'loading',
@@ -339,6 +320,9 @@ Page({
                   res[i].StartDateTime.content = date.dateSplice(date)
                 } else {
                   res[i].StartDateTime.content = '';
+                }
+                if (readList.indexOf(res[i].ID) != -1) {
+                  res[i].isRead = true;
                 }
               }
               thiz.setData({
@@ -403,4 +387,17 @@ Page({
     }
 
   },
+
+  onHide: function () {
+    var read = app.globalData.readList.appointment;
+    wx.setStorage({
+      key: 'readAppointment',
+      data: read,
+      success: function(res) {
+        console.log(res)
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  }
 })

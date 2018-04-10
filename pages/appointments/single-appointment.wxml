@@ -39,4 +39,8 @@
   <span class= 'appointment-icon icon-fuhao-dianhua detail'></span>
   <text class='detail'>{{appointmentObj.Phone}}</text>
 </view>
+<view class='flex-item grid'>
+  <span class= 'appointment-icon icon-fonts-user detail'></span>
+  <text class='detail'>{{appointmentObj.OrganizerName.content}}</text>
+</view>
 </view>

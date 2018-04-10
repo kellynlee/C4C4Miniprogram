@@ -51,8 +51,10 @@ const regValidator = (regType,str) => {
 }
 
 const formValidator = (data) => {
-  if (data == null || data.length == 0) {
+  if (data.length == 0) {
     return false
+  }else {
+    return true
   }
 }
 

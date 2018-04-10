@@ -43,6 +43,7 @@ Page({
   },
 
   submitOpportunity:function (e) {
+    console.log(e.detail)
     var postData = e.detail.value;
     var index = this.data.currencyIndex;
     postData.currencyCode = this.data.currencyList[index];
@@ -57,8 +58,7 @@ Page({
       })
       return false
     }
-
-    if (!util.formValidate(postData.account)) {
+    if (!util.formValidator(postData.account)) {
       wx.showModal({
         title: 'Warning',
         content: 'Please Input Account!',
@@ -68,7 +68,7 @@ Page({
       return false
     }
 
-    if (!util.formValidate(postData.owner)) {
+    if (!util.formValidator(postData.owner)) {
       wx.showModal({
         title: 'Warning',
         content: 'Please Input Owner!',
@@ -102,23 +102,39 @@ Page({
     wx.showLoading({
       title: 'Saving',
     })
-    wx.request({
-      url: 'http://testc4cwc.duapp.com/mini/opportunity',
-      data: postData,
-      method: "POST",
-      success: (res) => {
-        wx.hideLoading()
-        wx.showToast({
-          title: 'Saved!',
-          duration:3000,
-          success: (res) => {
-            wx.switchTab({
-              url: '/pages/opportunity/opportunity',
-            })
-          }
-        })
-      }
-    })
+    /****************true request***************/
+    // wx.request({
+    //   url: 'http://testc4cwc.duapp.com/mini/opportunity',
+    //   data: postData,
+    //   method: "POST",
+    //   success: (res) => {
+    //     wx.hideLoading()
+    //     wx.showToast({
+    //       title: 'Saved!',
+    //       duration:3000,
+    //       success: (res) => {
+    //         wx.switchTab({
+    //           url: '/pages/opportunity/opportunity',
+    //         })
+    //       }
+    //     })
+    //   }
+    // })
+    /****************true request***************/
+
+    /************fake for demo**************/
+    setTimeout(()=>{
+      app.globalData.fakeOpportunity = e.detail;
+      wx.hideLoading();
+      wx.showToast({
+        title: 'Success',
+      });
+      wx.switchTab({
+        url: '/pages/opportunity/opportunity',
+      })
+    },300)
+    /************fake for demo**************/
+
   },
 
   clickInput: function (e) {
@@ -126,6 +142,22 @@ Page({
     //   isFocused:true
     // })
     console.log(e)
+  },
+  cancel:function () {
+    wx.showModal({
+      title: 'info',
+      content: 'Do you want to go back?',
+      showCancel:true,
+      cancelText:'Cancel',
+      confirmText:'Yes',
+      success:(res) => {
+        if(res.confirm) {
+          wx.switchTab({
+            url: '/pages/opportunity/opportunity',
+          })
+        }
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载

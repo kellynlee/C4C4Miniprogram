@@ -2,7 +2,7 @@
 /* @import"../../weui.wxss";  */
 page {
   height: 100%;
-  background-color: #f8f8f8;
+  /* background-color: #f8f8f8; */
 }
 view,text,button{
   font-family: '72';
@@ -18,20 +18,21 @@ view,text,button{
 }
 
 .container {
-  margin: 40rpx 0 0 30rpx;
+  margin: 40rpx 0 0 0;
 }
 
 .row {
   display: block;
   width: 600rpx;
   margin-bottom: 10rpx;
+  margin-left: 30rpx;
 }
 
 .subTitle {
   display: block;
   margin-top: -28rpx;
   font-size: 28rpx;
-  color: #BDBDBD
+  color: #8a8a8a
 }
 
 .row:nth-child(3) .formBody {
@@ -61,33 +62,25 @@ input {
   height: 63rpx;
 }
 
-.formBody :focus {
- border:1px solid #509AFF;
- color: #509AFF;
- /* height: 50rpx */
-}
-
 .innerStyle {
-  font-family: '72'
+  font-family: '72';
+  color: #BDBDBD;
+  font-size: 32rpx;
 }
 
-button {
-  width: 500rpx;
+.row:nth-child(6),
+.row:nth-child(7) {
+  width: 100%;
+  margin-left: 0;
+}
+
+button{
+  width: 600rpx;
   background-color: #509AFF;
   color: #fff;
   margin-top: 40rpx;
 }
-/* .row {
-  height: 120rpx; 
-  margin-bottom: 20rpx;
-  position: relative;
-}
 
-input {
-  width: 600rpx;
-  
+.cancel button {
+  background-color: #BDBDBD
 }
-
-.isClicked {
-  border-bottom: 1px solid #666666;
-} */

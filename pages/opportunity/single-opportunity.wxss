@@ -85,8 +85,9 @@ view.is-read{
   color: #62b900;
   font-size: 40rpx;
 }
-.has-read {
-  color: #fff;
+span.has-read {
+  opacity: 0;
+  font-size: 40rpx;
 }
 @font-face {font-family: "appointment-icon";
   src: url('iconfont.eot?t=1521182753954'); /* IE9*/

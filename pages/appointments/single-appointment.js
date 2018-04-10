@@ -33,8 +33,12 @@ Component({
       if(this.properties.appointmentObj.isRead == undefined) {
         this.setData({
           isRead:true
-        })
+        });
+        this.properties.appointmentObj.isRead = true;
+        app.globalData.readList.appointment.push(this.properties.appointmentObj.ID);
+        console.log(app.globalData.readList.appointment)
       }
+
       if(this.data.isClick) {
         this.setData({
           isClick: false
@@ -79,10 +83,25 @@ Component({
     },
     showDetail:function (e) {
       // console.log(this.properties.appointmentObj)
+      if (this.properties.appointmentObj.isRead == undefined) {
+        this.setData({
+          isRead: true
+        });
+        this.properties.appointmentObj.isRead = true;        
+        app.globalData.readList.appointment.push(this.properties.appointmentObj.ID);
+        console.log(app.globalData.readList.appointment)
+      }
       var id = this.properties.appointmentObj.ObjectID
       
       wx.navigateTo({
-        url: '/pages/showDetail/showDetail?key='+ id + '&entity=AppointmentCollection',
+        url: '/pages/showDetail/showDetail?key=' + id + '&entity=AppointmentCollection'
+      })
+    }
+  },
+  ready:function () {
+    if (this.properties.appointmentObj.isRead != undefined && this.properties.appointmentObj.isRead === true) {
+      this.setData({
+        isRead:true
       })
     }
   }

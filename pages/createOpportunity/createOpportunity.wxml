@@ -45,14 +45,17 @@
     </view>
     <view class='row '>
       <view class='formTitle '>
-      <text style='color: #F44336; '>*</text><text class='subTitle ' style='padding-left:4rpx'>Owner</text>
+      <text style='color: #F44336;'>*</text><text class='subTitle ' style='padding-left:4rpx'>Owner</text>
       </view>
       <view class='formBody '>
         <input placeholder='Input Owner ' name='owner' placeholder-class='innerStyle'></input>
       </view>
     </view>  
     <view class='row'>
-      <button formType='submit' >Save</button>
+      <button formType='submit'>Save</button>
     </view>
   </form>
+    <view class='cancel'>
+      <button bindtap='cancel'>Cancel</button>
+    </view>
 </view>

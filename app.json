@@ -5,6 +5,7 @@
     "pages/opportunity/opportunity",
     "pages/showDetail/showDetail",
     "pages/createOpportunity/createOpportunity"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

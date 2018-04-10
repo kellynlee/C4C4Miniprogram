@@ -3,6 +3,16 @@ App({
   onLaunch: function () {
     var thiz = this;
     // 展示本地存储能力
+    if(wx.getStorageSync('readAppointment') != undefined) {
+      if (wx.getStorageSync('readAppointment').length != 0) {
+        this.globalData.readList.appointment = wx.getStorageSync('readAppointment');
+      }
+    }
+    if(wx.getStorageSync('readOpportunity') != undefined) {
+      if (wx.getStorageSync('readOpportunity').length != 0) {
+        this.globalData.readList.opportunity = wx.getStorageSync('readOpportunity');
+      }
+    }
     wx.login({
       //获取code
       success: function (res) {
@@ -40,8 +50,9 @@ App({
     openID: null,
     employeeName:null,
     readList:{
-      appotintment:[],
-      opportubity:[]
-    }
+      appointment:[],
+      opportunity:[]
+    },
+    fakeOpportunity:null
   }
 })
