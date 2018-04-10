@@ -1,68 +1,21 @@
-<!--pages/appointments/show-detail.wxml-->
-<view class='header'>
-  <text class='header-text'>SubjectName</text>
-  <view class='editBtn'>
-  <span style="height:100%;display:inline-block;vertical-align:middle"></span>
-    <image src='../../icons/edit.png' class='edit-icon'></image>
-  </view>
-</view>
-<view class='container'>
-<view class='row'>
-  <view class="cell">
-    <text class='title'>Status</text>
-    <text class='content'>Open</text>
-  </view>
-  <view class='cell'>
-    <text class='title'>Sbuject</text>
-    <text class='content'>SubjectName</text>
-  </view>
-</view>
-<view class='row'>
-  <view class='cell'>
-    <text class='title'>Account</text>  
-    <text class='content'>AccountName</text>      
-  </view>
-  <view  class='cell'>
-    <text class='title'>PrimaryContact</text>  
-    <text class='content'>ABCDS</text>  
-  </view>
-</view>
-<view class='row'>
-  <view class='cell'>
-    <text class='title'>Organizer</text>  
-    <text class='content'>Jason</text>  
-  </view>
-  <view class='cell'>
-    <text class='title'>Locatoin</text>  
-    <text class='content'>New York</text>  
-  </view>
-</view>
-<view class='row'>
-  <view class='cell'>
-    <text class='title'>All Day Event</text>  
-    <text class='content'>Yes</text>  
-  </view>
-  <view class='cell'>
-    <text class='title'>Priority</text>  
-    <text class='content'>Normal</text>  
-  </view>
-</view>
-<view class='row'>
-  <view class='cell'>
-    <text class='title'>Start Date/Time</text>  
-    <text class='content'>2018-01-02 11:03:40</text>  
-  </view>
-</view>
-<view class='row'>
-  <view class='cell'>
-    <text class='title'>End Date/Time</text>  
-    <text class='content'>2018-01-03 11:22:22</text>  
-  </view>
-</view>
-<view class='row'>
-  <view class='cell'>
-    <text class='title'>Category</text>  
-    <text class='content'>ACDC</text>  
-  </view>
-</view>
+<!-- pages/appointments/show-detail.wxml -->
+<view class="container">
+  <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+    <block wx:for="{{tabs}}" wx:key="unique">
+      <view class="tab-item {{currentTab==index?'active':'inactive'}}" data-current="{{index}}" bindtap="switchNav">
+        {{ item }}
+      </view>
+    </block>
+  </scroll-view>
+  <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:100%">
+    <swiper-item wx:for="{{[0,1,2,3,4,5]}}">
+      <scroll-view scroll-y="true" class="scroll-h">
+        <block wx:for="{{[1,2,3,4,5,6]}}" wx:key="*this">
+          <view class="item-ans">
+            <view>Cards</view>
+          </view>
+        </block>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
 </view>
