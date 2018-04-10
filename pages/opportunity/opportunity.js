@@ -512,6 +512,9 @@ Page({
                } else {
                  res[i].StartDate = '';
                }
+               if (res[i].Name.content.length > 35) {
+                 res[i].Name.content = res[i].Name.content.slice(0,35) + '...'
+               }
                if (readList.indexOf(res[i].OpportunityID) != -1) {
                   res[i].isRead = true;
                 }
