@@ -23,7 +23,7 @@ text {
   overflow: hidden;
   line-height: 80rpx;
   background: #509aff;
-  font-size: 16px;
+  font-size: 32rpx;
   white-space: nowrap;
   position: fixed;
   top: 0;
@@ -32,6 +32,12 @@ text {
   padding-left: 32rpx;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+ }
+ 
 .tab-item {
   margin: 0 36rpx;
   display: inline-block;
@@ -68,7 +74,7 @@ text {
   box-sizing: border-box;
   height: 180rpx;
   align-items: center;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 2rpx solid #f2f2f2;
 }
 
 .tab-content {
