@@ -1,14 +1,30 @@
-
 // pages/appointments/show-detail.js
 const app = getApp();
-const util = require('../../utils/util.js');
+const util = require("../../utils/util.js");
 
 Page({
   data: {
     winHeight: "", //窗口高度
     currentTab: 0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
-    tabs: ["OVERVIEW", "PRODUCTS", "REVENUE SPLITS", "FEED", "SALES ACTIVITIES", "COMPETITORS", "SALES TEAM", "CONTACTS"]
+    detailType: "",
+    appointmentTabs: [
+      "OVERVIEW",
+      "FEED",
+      "RELATED ITEMS",
+      "CHANGES",
+      "DOCUMENT FLOW"
+    ],
+    opportunityTabs: [
+      "OVERVIEW",
+      "PRODUCTS",
+      "REVENUE SPLITS",
+      "FEED",
+      "SALES ACTIVITIES",
+      "COMPETITORS",
+      "SALES TEAM",
+      "CONTACTS"
+    ]
   },
   // 滚动切换标签样式
   switchTab: function(e) {
@@ -40,7 +56,7 @@ Page({
       });
     }
   },
-  onLoad: function() {
+  onLoad: function(options) {
     var that = this;
     //  高度自适应
     wx.getSystemInfo({
@@ -51,8 +67,10 @@ Page({
         var calc = clientHeight * rpxR - 180;
         console.log(calc);
         that.setData({
-          winHeight: calc
+          winHeight: calc,
+          detailType: options.entity
         });
+        console.log(that.data.detailType);
       }
     });
   },
@@ -60,7 +78,6 @@ Page({
   footerTap: app.footerTap
 });
 
-  /**
-   * 组件的方法列表
-   */
-  
+/**
+ * 组件的方法列表
+ */
