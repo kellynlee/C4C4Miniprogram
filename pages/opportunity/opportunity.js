@@ -193,7 +193,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function (e) {
-    console.log(e)
     var openId = wx.getStorageSync('openId');
     var readList = wx.getStorageSync('readOpportunity');
     /**********fake for demo************/
@@ -537,12 +536,12 @@ Page({
         if (this.data.opportunityList.length == 0) {
           wx.hideLoading();
           wx.showToast({
-            title: 'Error',
+            title: 'No Data',
             mask: true,
             image: '../../icons/error.png'
           })
         }
-      }, 31000)
+      }, 41000)
     }
     if (this.data.isTranslated) {
       var headerAnimation = wx.createAnimation({

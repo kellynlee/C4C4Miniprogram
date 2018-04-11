@@ -22,7 +22,10 @@ Component({
   data: {
     isClick:false,
     isRead:false,
-    rotateArrow:{}
+    rotateArrow:{},
+    touchStartX:'',
+    touchEndX:'',
+    swipe:'',
   },
 
   /**
@@ -95,6 +98,39 @@ Component({
       
       wx.navigateTo({
         url: '/pages/showDetail/showDetail?key=' + id + '&entity=AppointmentCollection'
+      })
+    },
+    touchStart: function (e) {
+      this.setData({
+        touchStartX:e.changedTouches[0].clientX
+      })
+    },
+    touchEnd: function (e) {
+      var end = e.changedTouches[0].clientX;
+      var start = this.data.touchStartX;
+      console.log(start,end);
+      var swipe = wx.createAnimation({
+        duration: 200,
+        timingFunction: 'liner'
+      });
+      if (start - end >90) {
+        console.log('swipe')
+        swipe.translateX(-120).step()
+        this.setData({
+          swipe: swipe.export()
+        })
+      }else {
+        console.log('back')
+        swipe.translateX(0).step()
+        this.setData({
+          swipe: swipe.export()
+        })
+      }
+    },
+    convertOpportunity: function () {
+      var account = this.properties.appointmentObj.Account.content;
+      wx.redirectTo({
+        url: '/pages/createOpportunity/createOpportunity?account='+account
       })
     }
   },

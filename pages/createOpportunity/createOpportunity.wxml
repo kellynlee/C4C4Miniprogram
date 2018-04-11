@@ -18,7 +18,7 @@
         <text class='subTitle' style='padding-left:4rpx'>Account</text>
       </view>
       <view class='formBody'>
-        <input placeholder='Input Account' name='account' placeholder-class='innerStyle'></input>
+        <input placeholder='Input Account' name='accountId' placeholder-class='innerStyle' value='{{accountName}}'></input>
       </view>
     </view>
     <view class='row'>
@@ -40,7 +40,7 @@
       <text style='opacity:0'>*</text><text class='subTitle'>Probability</text>
       </view>
       <view class='formBody '>
-      <input placeholder='Input Probability ' name='probabilityPercentage' placeholder-class='innerStyle'></input>
+      <input placeholder='Input Probability ' name='probabilityPercent' placeholder-class='innerStyle'></input>
       </view>
     </view>
     <view class='row '>

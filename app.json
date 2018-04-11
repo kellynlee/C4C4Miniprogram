@@ -33,7 +33,7 @@
     "borderStyle": "black"
   },
   "networkTimeout": {
-    "request": 30000,
+    "request": 40000,
     "connectSocket": 20000,
     "uploadFile": 20000,
     "downloadFile": 20000

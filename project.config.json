@@ -8,7 +8,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.91",
+	"libVersion": "1.9.97",
 	"appid": "wxa9b01c5f7e4c5174",
 	"projectname": "C4C%20mini%20program",
 	"isGameTourist": false,
@@ -32,6 +32,12 @@
 					"id": -1,
 					"name": "opportunity",
 					"pathName": "pages/opportunity/opportunity",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "appointment",
+					"pathName": "pages/appointments/appointments",
 					"query": ""
 				}
 			]
