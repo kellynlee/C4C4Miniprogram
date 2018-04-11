@@ -80,6 +80,10 @@ Page({
       return false
     }
 
+    if (!util.formValidator(postData.amount)) {
+      postData.amount = '0'
+    }
+
     if (!util.regValidator('num', postData.amount)) {
       wx.showModal({
         title: 'Warning',
@@ -184,7 +188,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options != undefined) {
+    if (options.account != undefined) {
       this.setData({
         accountName: options.account
       })
