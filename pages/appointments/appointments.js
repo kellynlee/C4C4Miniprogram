@@ -29,7 +29,8 @@ Page({
     scrollHeight:82,
     screenHeight:'', 
     background: '',
-    startPos:'',
+    startPosY:'',
+    startPosX:'',
     isToTop:'',
     textFade:'',
     textShow:'',
@@ -161,7 +162,8 @@ Page({
 
   startPosition: function(e) {
     this.setData({
-      startPos: e.changedTouches[0].clientY
+      startPosY: e.changedTouches[0].clientY,
+      startPosX: e.changedTouches[0].clientX
     })
   },
   moveContent: function (e) {
@@ -183,62 +185,64 @@ Page({
       delay: 0
     });
     
-    if (currentPos - this.data.startPos < 0) {
-      // console.log('up')
-      if (this.data.isToTop) {
-        this.setData({
-          isToTop: false
-        })
-      }
-      var textFade = wx.createAnimation({
-        duration: 200,
-        timingFunction: 'liner',
-        delay: 0
-      });
-      var textShow = wx.createAnimation({
-        duration: 200,
-        timingFunction: 'liner',
-        delay: 100
-      });
-      headerAnimation.translateY(-leftHeight).step();
-      listAnimation.translateY(-listLeftHeight).step();
-      textFade.opacity(0).step();
-      textShow.opacity(1).step();
-      this.setData({
-        headerAnimation: headerAnimation.export(),
-        listAnimation: listAnimation.export(),
-        textShow: textShow.export(),
-        textFade: textFade.export(),
-        scrollHeight: 94,
-        background: 'background-position: 100% -200%; transition:background 1s ease-out;',
-        isTranslated:true
-      })
-    }else{
-      if(this.data.isTranslated && this.data.isToTop) {
+    if(Math.abs(e.changedTouches[0].clientX - this.data.startPosX) < 30) {
+      if (currentPos - this.data.startPosY < 0) {
+        // console.log('up')
+        if (this.data.isToTop) {
+          this.setData({
+            isToTop: false
+          })
+        }
         var textFade = wx.createAnimation({
-          duration: 200,
-          timingFunction: 'liner',
-          delay: 100
-        });
-        var textShow = wx.createAnimation({
           duration: 200,
           timingFunction: 'liner',
           delay: 0
         });
-        // console.log('down')
-        headerAnimation.translateY(0).step();
-        listAnimation.translateY(0).step();
-        textFade.opacity(1).step();
-        textShow.opacity(0).step();
+        var textShow = wx.createAnimation({
+          duration: 200,
+          timingFunction: 'liner',
+          delay: 100
+        });
+        headerAnimation.translateY(-leftHeight).step();
+        listAnimation.translateY(-listLeftHeight).step();
+        textFade.opacity(0).step();
+        textShow.opacity(1).step();
         this.setData({
           headerAnimation: headerAnimation.export(),
           listAnimation: listAnimation.export(),
-          textFade: textFade.export(),
           textShow: textShow.export(),
-          scrollHeight: 82,
-          background: 'background-position: 100% 80%; transition:background 1s ease-out;',
-          isTranslated: false
+          textFade: textFade.export(),
+          scrollHeight: 94,
+          background: 'background-position: 100% -200%; transition:background 1s ease-out;',
+          isTranslated: true
         })
+      } else {
+        if (this.data.isTranslated && this.data.isToTop) {
+          var textFade = wx.createAnimation({
+            duration: 200,
+            timingFunction: 'liner',
+            delay: 100
+          });
+          var textShow = wx.createAnimation({
+            duration: 200,
+            timingFunction: 'liner',
+            delay: 0
+          });
+          // console.log('down')
+          headerAnimation.translateY(0).step();
+          listAnimation.translateY(0).step();
+          textFade.opacity(1).step();
+          textShow.opacity(0).step();
+          this.setData({
+            headerAnimation: headerAnimation.export(),
+            listAnimation: listAnimation.export(),
+            textFade: textFade.export(),
+            textShow: textShow.export(),
+            scrollHeight: 82,
+            background: 'background-position: 100% 80%; transition:background 1s ease-out;',
+            isTranslated: false
+          })
+        }
       }
     }
  },
@@ -353,12 +357,12 @@ Page({
           if (this.data.appointmentList.length == 0) {
             wx.hideLoading();
             wx.showToast({
-              title: 'Error',
+              title: 'No Data',
               mask: true,
               image: '../../icons/error.png'
             })
           }
-        },21000)
+        },41000)
     }
     if (this.data.isTranslated) {
       var headerAnimation = wx.createAnimation({

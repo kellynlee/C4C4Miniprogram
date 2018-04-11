@@ -10,7 +10,7 @@
     </view>
   </view>
   <scroll-view  style='height:{{scrollHeight}}%;'scroll-y='true' animation = "{{listAnimation}}" bindscrolltoupper = "toTop"> 
-   <view wx:for="{{appointmentList}}" bind:touchmove = "moveContent" bind:touchstart = "startPosition" wx:key='*this.index'>
+   <view wx:for="{{appointmentList}}" bind:touchend = "moveContent" bind:touchstart = "startPosition" wx:key='*this.index'>
    <single-appointment appointment-obj="{{item}}" index = "{{index}}"></single-appointment>
    </view>  
   </scroll-view>

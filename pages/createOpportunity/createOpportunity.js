@@ -10,6 +10,7 @@ Page({
     isFocused: false,
     openId: '',
     employeeName:'',
+    accountName:'',
     opportunityData: {
       DocumentType: 'Opportunity',
       Type: '',
@@ -59,7 +60,7 @@ Page({
       })
       return false
     }
-    if (!util.formValidator(postData.account)) {
+    if (!util.formValidator(postData.accountId)) {
       wx.showModal({
         title: 'Warning',
         content: 'Please Input Account!',
@@ -89,7 +90,7 @@ Page({
       return false
     }
 
-    if (!util.regValidator('num', postData.amount)) {
+    if (!util.regValidator('num', postData.probabilityPercent)) {
       wx.showModal({
         title: 'Warning',
         content: 'Probability Must be Number!',
@@ -98,7 +99,7 @@ Page({
       })
       return false
     } else {
-      postData.probabilityPercentage = postData.probabilityPercentage + '.000000'
+      postData.probabilityPercent = postData.probabilityPercent + '.000000'
     }
     wx.showLoading({
       title: 'Saving',
@@ -183,6 +184,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options != undefined) {
+      this.setData({
+        accountName: options.account
+      })
+    }
+    
     var employeeName = wx.getStorageSync('employeeName');
     this.setData({
       employeeName: employeeName

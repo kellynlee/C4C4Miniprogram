@@ -23,6 +23,7 @@ text {
   /* margin-bottom: 20rpx; */
   /* box-shadow: 1px 2px 12px #dbdbdb; */
 }
+
 .flex-img {
   display: flex;
   align-items: center

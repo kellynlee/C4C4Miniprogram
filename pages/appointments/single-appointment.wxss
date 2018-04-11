@@ -10,17 +10,48 @@
 text {
   font-family: "72"
 }
+.container {
+  height: 144rpx;
+  width: 100%;
+}
 .single-style {
-  height: 100rpx;
-  /* width:100px; */
   background-color: #fff;
   display: flex;
   flex-direction: row;
-  padding: 20rpx 0 20rpx 10rpx;
+  padding: 20rpx 40rpx 20rpx 10rpx;
   border-top: 1rpx solid #e6e6e6; 
   border-bottom: 1rpx solid #e6e6e6; 
-  /* margin-bottom: 20rpx; */
+   position: relative; 
+   z-index: 10; 
+   /* margin-bottom: 20rpx;  */
   /* box-shadow: 1px 2px 12px #dbdbdb; */
+}
+
+.convertBox {
+  z-index: 0;
+  position: absolute; 
+  /* left: 85%; */
+  right: 0;
+   /* top:0;    */
+   height: 142rpx;
+   margin-top: -144rpx;
+  width: 250rpx;
+  background-color: #62b900;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+   /* border: 1rpx solid #e6e6e6;  */
+  /* width: 100rpx; */
+  
+}
+
+.text1 {
+  color: #fff;
+}
+
+.text2 {
+  color: #fff;
 }
 
 .single-style:click {
