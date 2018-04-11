@@ -16,36 +16,26 @@
       </block>
     </view>
   </scroll-view>
-
-  <view wx:if="{{detailType=='AppointmentCollection'}}">
-    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:100%">
-      <swiper-item>
-        <scroll-view scroll-y="{{true}}" style="height:100%">
-          <image class="scroll-h" src="../../icons/Group 2 Copy.png" mode="widthFix"></image>
-          <image class="scroll-h" src="../../icons/Group 2 Copy 9.png" mode="widthFix" style="margin-bottom: 128rpx"></image>
-        </scroll-view>
-      </swiper-item>
-      <!-- PRODUCTS -->
-      <swiper-item>
-        <image class="scroll-h" src="../../icons/Group 5 Copy.png" mode="widthFix"></image>
-      </swiper-item>
-    </swiper>
-  </view>
-
-  <view wx:if="{{detailType=='OpportunityCollection'}}">
-    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:100%">
-      <swiper-item>
-        <scroll-view scroll-y="{{true}}" style="height:100%">
-          <image class="scroll-h" src="../../icons/Group 7 Copy 2.png" mode="widthFix"></image>
-          <image class="scroll-h" src="../../icons/Group 5.png" mode="widthFix"></image>
-          <image class="scroll-h" src="../../icons/Group 7 Copy.png" mode="widthFix"></image>
-          <image class="scroll-h" src="../../icons/Group 7.png" mode="widthFix" style="margin-bottom: 128rpx"></image>
-        </scroll-view>
-      </swiper-item>
-      <!-- PRODUCTS -->
-      <swiper-item>
-        <image class="scroll-h" src="../../icons/Group 5 Copy.png" mode="widthFix"></image>
-      </swiper-item>
-    </swiper>
-  </view>
+  <swiper wx:if="{{detailType=='AppointmentCollection'}}" class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:100%">
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" style="height:100%">
+        <image class="scroll-h" src="../../icons/Group 2 Copy.png" mode="widthFix"></image>
+        <image class="scroll-h" src="../../icons/Group 2 Copy 9.png" mode="widthFix" style="margin-bottom: 128rpx"></image>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+  <swiper wx:if="{{detailType=='OpportunityCollection'}}" class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:100%">
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" style="height:100%">
+        <image class="scroll-h" src="../../icons/Group 7 Copy 2.png" mode="widthFix"></image>
+        <image class="scroll-h" src="../../icons/Group 5.png" mode="widthFix"></image>
+        <image class="scroll-h" src="../../icons/Group 7 Copy.png" mode="widthFix"></image>
+        <image class="scroll-h" src="../../icons/Group 7.png" mode="widthFix" style="margin-bottom: 128rpx"></image>
+      </scroll-view>
+    </swiper-item>
+    <!-- PRODUCTS -->
+    <swiper-item>
+      <image class="scroll-h" src="../../icons/Group 5 Copy.png" mode="widthFix"></image>
+    </swiper-item>
+  </swiper>
 </view>
