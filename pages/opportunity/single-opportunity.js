@@ -36,7 +36,7 @@ Component({
       }
       var id = this.properties.opportunityObj.OpportunityID
       wx.navigateTo({
-        url: '/pages/opportunityShowDetail/showDetail?key=' + id + '&entity=OpportunityCollection',
+        url: '/pages/showDetail/showDetail?key=' + id + '&entity=OpportunityCollection',
       })
     },
     

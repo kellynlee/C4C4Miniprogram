@@ -94,7 +94,7 @@ Component({
       var id = this.properties.appointmentObj.ObjectID
       
       wx.navigateTo({
-        url: '/pages/appointmentShowDetail/showDetail?key=' + id + '&entity=AppointmentCollection'
+        url: '/pages/showDetail/showDetail?key=' + id + '&entity=AppointmentCollection'
       })
     }
   },

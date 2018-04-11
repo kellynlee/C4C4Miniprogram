@@ -1,11 +1,20 @@
 <!-- pages/appointments/show-detail.wxml -->
 <view class="container">
   <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
-    <block wx:for="{{tabs}}" wx:key="unique">
-      <view class="tab-item {{currentTab==index?'active':'inactive'}}" data-current="{{index}}" bindtap="switchNav">
-        {{ item }}
-      </view>
-    </block>
+    <view wx:if="{{detailType=='AppointmentCollection'}}">
+      <block wx:for="{{appointmentTabs}}" wx:key="unique">
+        <view class="tab-item {{currentTab==index?'active':'inactive'}}" data-current="{{index}}" bindtap="switchNav">
+          {{ item }}
+        </view>
+      </block>
+    </view>
+    <view wx:if="{{detailType=='OpportunityCollection'}}">
+      <block wx:for="{{opportunityTabs}}" wx:key="unique">
+        <view class="tab-item {{currentTab==index?'active':'inactive'}}" data-current="{{index}}" bindtap="switchNav">
+          {{ item }}
+        </view>
+      </block>
+    </view>
   </scroll-view>
   <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:100%">
     <swiper-item>
