@@ -8,7 +8,14 @@ Page({
     currentTab: 0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
     detailType: "",
-    tabs: [
+    appointmentTabs: [
+      "OVERVIEW",
+      "FEED",
+      "RELATED ITEMS",
+      "CHANGES",
+      "DOCUMENT FLOW"
+    ],
+    opportunityTabs: [
       "OVERVIEW",
       "PRODUCTS",
       "REVENUE SPLITS",
@@ -49,7 +56,7 @@ Page({
       });
     }
   },
-  onLoad: function() {
+  onLoad: function(options) {
     var that = this;
     //  高度自适应
     wx.getSystemInfo({
@@ -60,8 +67,10 @@ Page({
         var calc = clientHeight * rpxR - 180;
         console.log(calc);
         that.setData({
-          winHeight: calc
+          winHeight: calc,
+          detailType: options.entity
         });
+        console.log(that.data.detailType);
       }
     });
   },
