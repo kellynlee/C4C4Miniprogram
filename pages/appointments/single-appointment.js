@@ -129,8 +129,9 @@ Component({
     },
     convertOpportunity: function () {
       var account = this.properties.appointmentObj.Account.content;
+      var id = this.properties.appointmentObj.ID
       wx.redirectTo({
-        url: '/pages/createOpportunity/createOpportunity?account='+account
+        url: '/pages/createOpportunity/createOpportunity?account='+account + '&Id=' + id
       })
     }
   },

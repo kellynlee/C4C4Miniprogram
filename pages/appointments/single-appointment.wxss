@@ -18,7 +18,7 @@ text {
   background-color: #fff;
   display: flex;
   flex-direction: row;
-  padding: 20rpx 40rpx 20rpx 10rpx;
+  padding: 16rpx 40rpx 20rpx 10rpx;
   border-top: 1rpx solid #e6e6e6; 
   border-bottom: 1rpx solid #e6e6e6; 
    position: relative; 
@@ -33,8 +33,8 @@ text {
   /* left: 85%; */
   right: 0;
    /* top:0;    */
-   height: 142rpx;
-   margin-top: -144rpx;
+   height: 144rpx;
+   margin-top: -152rpx;
   width: 250rpx;
   background-color: #62b900;
   display: flex;
@@ -81,10 +81,10 @@ text {
 }
 
 .drag-list {
-  height: 200rpx;
+  height: 180rpx;
   background-color: #fff;
   border-bottom: 1rpx solid #dbdbdb;  
-  padding: 10rpx 40rpx 20rpx 60rpx;
+  padding: 30rpx 40rpx 20rpx 60rpx;
   /* margin-top:-20rpx; */
 }
 

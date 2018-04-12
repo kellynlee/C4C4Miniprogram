@@ -11,6 +11,8 @@ Page({
     openId: '',
     employeeName:'',
     accountName:'',
+    appointmentId:'',
+    isConvert:false,
     opportunityData: {
       DocumentType: 'Opportunity',
       Type: '',
@@ -190,10 +192,15 @@ Page({
   onLoad: function (options) {
     if (options.account != undefined) {
       this.setData({
-        accountName: options.account
+        accountName: options.account,
+        isConvert: true
       })
     }
-    
+    if (options.Id != undefined) {
+      this.setData({
+        appointmentId: 'For AppointmentId:' + options.Id
+      })
+    }
     var employeeName = wx.getStorageSync('employeeName');
     this.setData({
       employeeName: employeeName

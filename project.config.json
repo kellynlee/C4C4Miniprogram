@@ -43,7 +43,14 @@
 				{
 					"id": -1,
 					"name": "login",
-					"pathName": "pages/userLogin/userLogin"
+					"pathName": "pages/userLogin/userLogin",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "create",
+					"pathName": "pages/createOpportunity/createOpportunity",
+					"query": ""
 				}
 			]
 		}

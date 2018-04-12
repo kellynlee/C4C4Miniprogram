@@ -9,7 +9,7 @@
         <text class='subTitle' style='padding-left:4rpx'>Subject Name</text>
       </view>
       <view class='formBody'>
-        <input placeholder='Input Subject Name' name='name' placeholder-class='innerStyle' :focus></input>
+        <input placeholder='Input Subject Name' name='name' placeholder-class='innerStyle' value='{{appointmentId}}'></input>
       </view>
     </view>
     <view class='row'>
@@ -18,7 +18,7 @@
         <text class='subTitle' style='padding-left:4rpx'>Account</text>
       </view>
       <view class='formBody'>
-        <input placeholder='Input Account' name='accountId' placeholder-class='innerStyle' value='{{accountName}}'></input>
+        <input placeholder='Input Account' name='accountId' placeholder-class='innerStyle' value='{{accountName}}' disabled='{{isConvert}}' class="{{isConvert?'disable':''}}"></input>
       </view>
     </view>
     <view class='row'>
@@ -48,7 +48,7 @@
       <text style='color: #F44336;'>*</text><text class='subTitle ' style='padding-left:4rpx'>Owner</text>
       </view>
       <view class='formBody '>
-        <input placeholder='Input Owner ' name='owner' placeholder-class='innerStyle' value='{{employeeName}}' disabled='true'></input>
+        <input placeholder='Input Owner' name='owner' placeholder-class='innerStyle' value='{{employeeName}}' disabled='true' class='disable'></input>
       </view>
     </view>  
     <view class='row'>
